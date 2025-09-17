@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البيض السحري</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>لعبة البيض السحري</h1>
+    <p>اختر بيضة سحرية لترى ما بداخلها!</p>
+
+    <div class="egg-container">
+        <div class="egg" id="fire-egg">
+            <img src="https://i.imgur.com/YqIqj5n.png" alt="بيضة النار">
+            <button onclick="openEgg('fire')">افتح بيضة النار</button>
+        </div>
+
+        <div class="egg" id="water-egg">
+            <img src="https://i.imgur.com/2ZzL4V3.png" alt="بيضة الماء">
+            <button onclick="openEgg('water')">افتح بيضة الماء</button>
+        </div>
+
+        <div class="egg" id="nature-egg">
+            <img src="https://i.imgur.com/k2eYh8A.png" alt="بيضة الطبيعة">
+            <button onclick="openEgg('nature')">افتح بيضة الطبيعة</button>
+        </div>
+    </div>
+
+    <div id="result-container">
+        <h2>النتيجة:</h2>
+        <div id="result-display">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
