@@ -22,19 +22,54 @@ const animals = {
 
 // تعريف نسب ظهور كل فئة ندرة (كما هي لم تتغير)
 const rarityChances = {
-    common: 70,
-    uncommon: 20,
-    rare: 9,
-    legendary: 1
+    X: 70,
+    XX: 20,
+    XXX: 9,
+    XXXX: 1
 };
 
 // --- بداية الكود الجديد والمعدل ---
 function openEgg(eggType) {
     // قاموس لأسماء البيض
     const eggNames = {
-        fire: "بيضة النار",
-        water: "بيضة الماء",
-        nature: "بيضة الطبيعة"
+        common: "بيضة النار",
+        Rare: "بيضة الماء",
+        Legandary: "بيضة الطبيعة"
+    };
+    const selectedEggName = eggNames[eggType];
+
+    // 1. اختيار حيوان عشوائي بنفس الطريقة القديمة
+    const chosenRarity = getWeightedRandomRarity();
+    const possibleAnimals = animals[eggType].filter(animal => animal.rarity === chosenRarity);
+    let chosenAnimal;
+    if (possibleAnimals.length > 0) {
+        chosenAnimal = possibleAnimals[Math.floor(Math.random() * possibleAnimals.length)];
+    } else {
+        const commonAnimals = animals[eggType].filter(animal => animal.rarity === "common");
+        chosenAnimal = commonAnimals[Math.floor(Math.random() * commonAnimals.length)];
+    }
+
+    // 2. تجهيز المعلومات لإرسالها في الرابط
+    const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
+                          `&name=${encodeURIComponent(chosenAnimal.name)}` +
+                          `&power=${chosenAnimal.power}` +
+                          `&rarity=${chosenAnimal.rarity}`;
+
+    // 3. توجيه المستخدم إلى صفحة النتيجة مع إرسال المعلومات في الرابط
+    window.location.href = 'result.html' + queryString;
+}
+
+function getWeightedRandomRarity() {
+    const rand = Math.random() * 100;
+    let cumulativeChance = 0;
+    for (const rarity in rarityChances) {
+        cumulativeChance += rarityChances[rarity];
+        if (rand < cumulativeChance) {
+            return rarity;
+        }
+    }
+}
+// --- نهاية الكود الجديد والمعدل ---        nature: "بيضة الطبيعة"
     };
     const selectedEggName = eggNames[eggType];
 
