@@ -1,0 +1,72 @@
+body {
+    font-family: 'Cairo', sans-serif; /* يمكنك استخدام أي خط تفضلينه */
+    background-color: #f0f8ff;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    color: #4a4e69;
+}
+
+.egg-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.egg {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.egg:hover {
+    transform: translateY(-10px);
+}
+
+.egg img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.egg button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #9a8c98;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.egg button:hover {
+    background-color: #4a4e69;
+}
+
+#result-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-height: 100px;
+    display: inline-block;
+    width: 50%;
+}
+
+#result-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c9ada7;
+    margin-top: 10px;
+}
