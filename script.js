@@ -71,6 +71,41 @@ function getWeightedRandomRarity() {
 }
 // --- نهاية الكود الجديد والمعدل ---        nature: "بيضة الطبيعة"
     };
+    const selectedEggName = eggNames[eggType];
+
+    // 1. اختيار حيوان عشوائي بنفس الطريقة القديمة
+    const chosenRarity = getWeightedRandomRarity();
+    const possibleAnimals = animals[eggType].filter(animal => animal.rarity === chosenRarity);
+    let chosenAnimal;
+    if (possibleAnimals.length > 0) {
+        chosenAnimal = possibleAnimals[Math.floor(Math.random() * possibleAnimals.length)];
+    } else {
+        const commonAnimals = animals[eggType].filter(animal => animal.rarity === "common");
+        chosenAnimal = commonAnimals[Math.floor(Math.random() * commonAnimals.length)];
+    }
+
+    // 2. تجهيز المعلومات لإرسالها في الرابط
+    const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
+                          `&name=${encodeURIComponent(chosenAnimal.name)}` +
+                          `&power=${chosenAnimal.power}` +
+                          `&rarity=${chosenAnimal.rarity}`;
+
+    // 3. توجيه المستخدم إلى صفحة النتيجة مع إرسال المعلومات في الرابط
+    window.location.href = 'result.html' + queryString;
+}
+
+function getWeightedRandomRarity() {
+    const rand = Math.random() * 100;
+    let cumulativeChance = 0;
+    for (const rarity in rarityChances) {
+        cumulativeChance += rarityChances[rarity];
+        if (rand < cumulativeChance) {
+            return rarity;
+        }
+    }
+}
+// --- نهاية الكود الجديد والمعدل ---        nature: "بيضة الطبيعة"
+    };
 
     const selectedEggName = eggNames[eggType]; // الحصول على اسم البيضة
 
