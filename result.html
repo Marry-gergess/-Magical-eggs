@@ -1,4 +1,40 @@
-result.html                    <p>لقد اخترت: <strong>${eggName}</strong></p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النتيجة!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>النتيجة التي حصلت عليها:</h1>
+
+    <div id="result-container" style="margin-top: 20px;">
+        <div id="final-result">
+            <p>جاري تحميل النتيجة...</p>
+        </div>
+    </div>
+
+    <a href="index.html" style="text-decoration: none;">
+        <button style="margin-top: 30px; padding: 15px 30px; font-size: 18px;">العب مرة أخرى</button>
+    </a>
+
+    <script>
+        // هذا الكود الصغير سيقرأ المعلومات من رابط الصفحة ويعرضها
+        window.onload = function() {
+            const resultDiv = document.getElementById('final-result');
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const eggName = urlParams.get('egg');
+            const animalName = urlParams.get('name');
+            const animalPower = urlParams.get('power');
+            const animalRarity = urlParams.get('rarity');
+            
+            // التحقق من وجود المعلومات في الرابط
+            if (animalName) {
+                resultDiv.innerHTML = `
+                    <p>لقد اخترت: <strong>${eggName}</strong></p>
                     <hr style="margin: 10px 0;">
                     <p>وظهر لك:</p>
                     <h3>${animalName}</h3>
