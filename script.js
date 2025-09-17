@@ -1,22 +1,22 @@
-// تعريف بيانات الحيوانات لكل نوع بيضة (كما هي لم تتغير)
+ء// تعريف بيانات الحيوانات لكل نوع بيضة (كما هي لم تتغير
 const animals = {
-    common: [
-        { name: "فأر اللهب", power: 100, rarity: "common" },
-        { name: "ثعلب الحمم", power: 500, rarity: "uncommon" },
-        { name: "أسد بركاني", power: 2500, rarity: "rare" },
-        { name: "تنين شمسي", power: 10000, rarity: "legendary" }
+    Common: [
+        { name: "فأر اللهب", power: 100, rarity: "X" },
+        { name: "ثعلب الحمم", power: 500, rarity: "XX" },
+        { name: "أسد بركاني", power: 2500, rarity: "XXX" },
+        { name: "تنين شمسي", power: 10000, rarity: "XXXX" }
     ],
-    Rare: [
-        { name: "سلحفاة النهر", power: 120, rarity: "common" },
-        { name: "حصان البحر", power: 600, rarity: "uncommon" },
-        { name: "قرش المحيط", power: 3000, rarity: "rare" },
-        { name: "كراكن الأعماق", power: 12000, rarity: "legendary" }
+   Rare: [
+        { name: "سلحفاة النهر", power: 120, rarity: "X" },
+        { name: "حصان البحر", power: 600, rarity: "XX" },
+        { name: "قرش المحيط", power: 3000, rarity: "XXX" },
+        { name: "كراكن الأعماق", power: 12000, rarity: "XXXX" }
     ],
     Legandary: [
-        { name: "سنجاب الغابة", power: 90, rarity: "common" },
-        { name: "ذئب الأوراق", power: 450, rarity: "uncommon" },
-        { name: "غولم حجري", power: 2800, rarity: "rare" },
-        { name: "عنقاء الشجرة", power: 11000, rarity: "legendary" }
+        { name: "سنجاب الغابة", power: 90, rarity: "X" },
+        { name: "ذئب الأوراق", power: 450, rarity: "XX" },
+        { name: "غولم حجري", power: 2800, rarity: "XXX" },
+        { name: "عنقاء الشجرة", power: 11000, rarity: "XXXX" }
     ]
 };
 
