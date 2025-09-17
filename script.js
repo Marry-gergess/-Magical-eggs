@@ -1,6 +1,4 @@
 // تعريف بيانات الحيوانات لكل نوع بيضة
-// يمكنك تعديل هذه القوائم كما تشائين
-// Rarity: common (شائع), uncommon (غير شائع), rare (نادر), legendary (أسطوري)
 const animals = {
     fire: [
         { name: "فأر اللهب", power: 100, rarity: "common" },
@@ -23,18 +21,60 @@ const animals = {
 };
 
 // تعريف نسب ظهور كل فئة ندرة
-// مجموع النسب يجب أن يكون 100
 const rarityChances = {
-    common: 70,     // 70% فرصة لظهور حيوان شائع
-    uncommon: 20,   // 20% فرصة لظهور حيوان غير شائع
-    rare: 9,        // 9% فرصة لظهور حيوان نادر
-    legendary: 1    // 1% فرصة لظهور حيوان أسطوري
+    common: 70,     // 70%
+    uncommon: 20,   // 20%
+    rare: 9,        // 9%
+    legendary: 1    // 1%
 };
 
-// الدالة الرئيسية لفتح البيضة
+// --- بداية الكود الجديد ---
 function openEgg(eggType) {
-    // 1. اختيار فئة الندرة أولاً بناءً على النسب
+    // قاموس لأسماء البيض
+    const eggNames = {
+        fire: "بيضة النار",
+        water: "بيضة الماء",
+        nature: "بيضة الطبيعة"
+    };
+
+    const selectedEggName = eggNames[eggType]; // الحصول على اسم البيضة
+
     const chosenRarity = getWeightedRandomRarity();
+    const possibleAnimals = animals[eggType].filter(animal => animal.rarity === chosenRarity);
+
+    let chosenAnimal;
+    if (possibleAnimals.length > 0) {
+        chosenAnimal = possibleAnimals[Math.floor(Math.random() * possibleAnimals.length)];
+    } else {
+        const commonAnimals = animals[eggType].filter(animal => animal.rarity === "common");
+        chosenAnimal = commonAnimals[Math.floor(Math.random() * commonAnimals.length)];
+    }
+
+    const resultDisplay = document.getElementById('result-display');
+
+    // تم تعديل هذا الجزء لعرض اسم البيضة
+    resultDisplay.innerHTML = `
+        <p>لقد اخترت: <strong>${selectedEggName}</strong></p>
+        <hr style="margin: 10px 0;">
+        <p>وظهر لك:</p>
+        <h3>${chosenAnimal.name}</h3>
+        <p>القوة: ${chosenAnimal.power}</p>
+        <p style="text-transform: capitalize;">الندرة: ${chosenAnimal.rarity}</p>
+    `;
+}
+// --- نهاية الكود الجديد ---
+
+function getWeightedRandomRarity() {
+    const rand = Math.random() * 100;
+    let cumulativeChance = 0;
+
+    for (const rarity in rarityChances) {
+        cumulativeChance += rarityChances[rarity];
+        if (rand < cumulativeChance) {
+            return rarity;
+        }
+    }
+}    const chosenRarity = getWeightedRandomRarity();
 
     // 2. فلترة الحيوانات التي تنتمي لهذه الندرة في نوع البيضة المختار
     const possibleAnimals = animals[eggType].filter(animal => animal.rarity === chosenRarity);
