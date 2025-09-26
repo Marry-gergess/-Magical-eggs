@@ -1,9 +1,10 @@
 // --- 1. تعريف فئات القوة ---
 const animalTiers = {
-    common: { name: "عادي", minPower: 1, maxPower: 999 },
-    rare: { name: "نادر", minPower: 1000, maxPower: 9999 },
-    epic: { name: "ملحمي", minPower: 10000, maxPower: 24999 },
-    legendary: { name: "أسطوري", minPower: 25000, maxPower: 50000 }
+    common: { name: "X", minPower: 1, maxPower: 999 },
+    rare: { name: "XX", minPower: 1000, maxPower: 9999 },
+    epic: { name: "XXX", minPower: 10000, maxPower: 24999 },
+    legendary: { name: "XXXX", minPower: 25000, maxPower: 50000 }
+    
 };
 
 // --- 2. قائمة الحيوانات الرئيسية ---
