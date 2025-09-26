@@ -9,9 +9,9 @@ const animalTiers = {
 
 // --- 2. قائمة الحيوانات الرئيسية ---
 const masterAnimalList = [
-    { name: "فأر", power: X },
-    { name: "قطة ", power: X },
-    { name: "كلب", power: X },
+    { name: "فأر", power: 1 },
+    { name: "قطة ", power: 33 },
+    { name: "كلب", power: 44},
     { name: "ضفدع ", power: 2500 },
     { name: "ببغاء", power: 15000 },
     { name: " سحلية ", power: 45000 },
