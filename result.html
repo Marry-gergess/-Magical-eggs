@@ -25,12 +25,11 @@
             const resultDiv = document.getElementById('final-result');
             const urlParams = new URLSearchParams(window.location.search);
 
-            // قراءة المعلومات من الرابط بنفس الأسماء المرسلة
             const eggName = urlParams.get('egg');
             const animalName = urlParams.get('name');
             const animalPower = urlParams.get('power');
             const animalRarity = urlParams.get('rarity');
-            
+
             if (animalName && eggName && animalPower !== null && animalRarity) {
                 resultDiv.innerHTML = `
                     <p>لقد اخترت: <strong>${eggName}</strong></p>
@@ -45,18 +44,5 @@
             }
         };
     </script>
-</body>
-</html>                    <p>لقد اخترت: <strong>${eggName}</strong></p>
-                    <hr style="margin: 10px 0;">
-                    <p>وظهر لك:</p>
-                    <h3>${animalName}</h3>
-                    <p>القوة: ${animalPower}</p>
-                    <p style="text-transform: capitalize;">الندرة: ${animalRarity}</p>
-                `;
-            } else {
-                resultDiv.innerHTML = "<p>عفواً، حدث خطأ ما. حاول مرة أخرى.</p>";
-            }
-        };
-    </script>
-</body>
+    </body>
 </html>
