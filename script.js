@@ -11,10 +11,10 @@ const animalTiers = {
 const masterAnimalList = [
     { name: "فأر", power: X },
     { name: "قطة ", power: X },
-    { name: "ذئب الغابة", power: X },
-    { name: "الدب الأشيب", power: 2500 },
-    { name: "عنقاء اللهب", power: 15000 },
-    { name: "التنين القديم", power: 45000 },
+    { name: "كلب", power: X },
+    { name: "ضفدع ", power: 2500 },
+    { name: "ببغاء", power: 15000 },
+    { name: " سحلية ", power: 45000 },
     { name: "سلحفاة النهر", power: 90 },
     { name: "حصان البحر الملكي", power: 1500 },
     { name: "كراكن الأعماق", power: 30000 }
