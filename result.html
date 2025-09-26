@@ -21,20 +21,32 @@
     </a>
 
     <script>
-        // هذا الكود الصغير سيقرأ المعلومات من رابط الصفحة ويعرضها
         window.onload = function() {
             const resultDiv = document.getElementById('final-result');
             const urlParams = new URLSearchParams(window.location.search);
 
+            // قراءة المعلومات من الرابط بنفس الأسماء المرسلة
             const eggName = urlParams.get('egg');
             const animalName = urlParams.get('name');
             const animalPower = urlParams.get('power');
             const animalRarity = urlParams.get('rarity');
             
-            // التحقق من وجود المعلومات في الرابط
-            if (animalName) {
+            if (animalName && eggName && animalPower !== null && animalRarity) {
                 resultDiv.innerHTML = `
                     <p>لقد اخترت: <strong>${eggName}</strong></p>
+                    <hr style="margin: 10px 0;">
+                    <p>وظهر لك:</p>
+                    <h3>${animalName}</h3>
+                    <p>القوة: ${animalPower}</p>
+                    <p style="text-transform: capitalize;">الندرة: ${animalRarity}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = "<p>عفواً، لم يتم العثور على نتيجة. قد يكون الرابط غير صحيح. حاول مرة أخرى من الصفحة الرئيسية.</p>";
+            }
+        };
+    </script>
+</body>
+</html>                    <p>لقد اخترت: <strong>${eggName}</strong></p>
                     <hr style="margin: 10px 0;">
                     <p>وظهر لك:</p>
                     <h3>${animalName}</h3>
