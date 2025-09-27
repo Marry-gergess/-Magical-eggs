@@ -9,12 +9,12 @@ const rarityNames = {
 
 const masterAnimalList = [
     // حيوانات X
-    { name: "فأر", price: 6, rarity: "common", currency: "S" },
-    { name: "ضفدع", price: 6, rarity: "common", currency: "S" },
-    { name: "قطة", price: 10, rarity: "common", currency: "S" },
-    { name: "كلب", price: 10, rarity: "common", currency: "S" },
-    { name: "ببغاء", price: 10, rarity: "common", currency: "S" },
-    { name: "سحلية", price: 10, rarity: "common", currency: "S" },
+    { name: "Rat | فأر", price: 6, rarity: "common", currency: "S" },
+    { name: " Frog | ضفدع", price: 6, rarity: "common", currency: "S" },
+    { name: "Cat | قطة", price: 10, rarity: "common", currency: "S" },
+    { name: "Dog | كلب", price: 10, rarity: "common", currency: "S" },
+    { name: "Parrot | ببغاء", price: 10, rarity: "common", currency: "S" },
+    { name: "سحلية الموك | Moke Lizard", price: 10, rarity: "common", currency: "S" },
 
 
     // حيوانات XX
@@ -28,8 +28,23 @@ const masterAnimalList = [
     { name: "Mooncalf | مونكالف", price: 10, rarity: "rare", currency: "G" },
 
     // حيوانات XXX
-    { name: "ببغاء", price: 15000, rarity: "epic", currency: "ريشة نادرة" },
+    { name: " Fwooper | فووبر", price: 11, rarity: "epic", currency: "G" },
+    { name: " Jarvey | جارف", price: 15, rarity: "epic", currency: "G" },
+    { name: "Fire Dwelling Salamander | سلمندر الناري ", price: 27, rarity: "epic", currency: "G" },
+    { name: "Frost Salamander | سلمندر الجليد ", price: 26, rarity: "epic", currency: "G" },
+    { name: "Peruvian Salamander | سلمندر البيروفي ", price: 25, rarity: "epic", currency: "G" },
+    { name: "Ashwinder | أشفيندر", price: 13, rarity: "epic", currency: "G" },
+    { name: "Crup | كروب", price: 16, rarity: "epic", currency: "G" },
+    { name: "Matagot | ماتاجوت", price: 100, rarity: "epic", currency: "G" },
+    { name: "Hippogriff | هيبوغريف", price: 70, rarity: "epic", currency: "G" },
+    { name: "Niffler | نيفلر", price: 30, rarity: "epic", currency: "G" },
+    { name: "Hippocampus | حصان البحر", price: 22, rarity: "epic", currency: "G" },
+    { name: "Kneazle | كنزل", price: 17, rarity: "epic", currency: "G" },
+    { name: "Pixie | بيكسي", price: 15, rarity: "epic", currency: "G" },
+    { name: "Murtlap | مرتلاب", price: 11, rarity: "epic", currency: "G" },
+    { name: "Doxy | دوكسي", price: 11, rarity: "epic", currency: "G" },
 
+    
     // حيوانات XXXX
     { name: "jj ", price: 1, rarity: "legendary", currency: "G" },
     { name: "سحلية", price: 45000, rarity: "legendary", currency: "جوهرة" },
