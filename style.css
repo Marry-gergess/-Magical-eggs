@@ -1,8 +1,17 @@
+
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #4a1b4f;
+
+    /* --- بداية الكود الجديد للخلفية --- */
+    background-image: url('images/background.jpg'); /* <-- تأكدي أن مسار واسم الصورة صحيحان */
+    background-size: cover;           /* لجعل الصورة تملأ الشاشة بالكامل */
+    background-position: center;      /* لتركيز الصورة في المنتصف */
+    background-repeat: no-repeat;     /* لمنع تكرار الصورة إذا كانت صغيرة */
+    background-attachment: fixed;     /* لتثبيت الخلفية عند تحريك الصفحة لأسفل */
+    /* --- نهاية الكود الجديد للخلفية --- */
+
     text-align: center;
-    color: #f5ff82;
+    color: #333;
     padding: 20px;
 }
 
