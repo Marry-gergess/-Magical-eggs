@@ -7,7 +7,6 @@
             mythic:    { name: "XXXXX", minPower: 50000,  maxPower: 100000 } // الفئة الجديدة
         };
 
-        // --- 2. قائمة الحيوانات الرئيسية (أضيفي حيوانات قوية جديدة هنا) ---
         const masterAnimalList = [
             // فئة Common (X)
             { name: "فأر", power: 1 },
