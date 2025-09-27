@@ -4,11 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>البيض السحري</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4a4e69;
+        }
+
+        .egg-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .egg {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .egg:hover {
+            transform: translateY(-10px);
+        }
+
+        .egg img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        .egg button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #9a8c98;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .egg button:hover {
+            background-color: #4a4e69;
+        }
+
+        #result-container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            min-height: 100px;
+            display: inline-block;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        #result-display {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a4e69;
+            margin-top: 10px;
+        }
+    </style>
+
 </head>
 <body>
 
-    <h1> متجر آل بوتر للمخلوقات السحرية</h1>
+    <h1>لعبة البيض السحري</h1>
     <p>اختر بيضة سحرية لترى ما بداخلها!</p>
 
     <div class="egg-container">
@@ -16,19 +93,33 @@
             <img src="images/common-egg.png" alt="بيضة عادية">
             <button onclick="openEgg('common')">افتح بيضة عادية</button>
         </div>
-
         <div class="egg" id="rare-egg">
             <img src="images/rare-egg.png" alt="بيضة نادرة">
             <button onclick="openEgg('rare')">افتح بيضة نادرة</button>
         </div>
-
         <div class="egg" id="legendary-egg">
             <img src="images/legendary-egg.png" alt="بيضة أسطورية">
             <button onclick="openEgg('legendary')">افتح بيضة أسطورية</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html></body>
-</html>
+    <div id="result-container">
+        <div id="result-display">
+            </div>
+    </div>
+
+    <script>
+        // --- 1. تعريف فئات القوة ---
+        const animalTiers = {
+            common:    { name: "X",     minPower: 1,      maxPower: 999 },
+            rare:      { name: "XX",    minPower: 1000,   maxPower: 4999 },
+            epic:      { name: "XXX",   minPower: 5000,   maxPower: 19999 },
+            legendary: { name: "XXXX",  minPower: 20000,  maxPower: 49999 },
+            mythic:    { name: "XXXXX", minPower: 50000,  maxPower: 100000 }
+        };
+
+        // --- 2. قائمة الحيوانات الرئيسية ---
+        const masterAnimalList = [
+            { name: "فأر", power: 50 },
+            { name: "قطة", power: 90 },
+            { name: "كلب", power:
