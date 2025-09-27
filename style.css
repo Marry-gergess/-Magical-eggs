@@ -1,5 +1,5 @@
 body {
-    font-family: 'Cairo', sans-serif; /* يمكنك استخدام أي خط تفضلينه */
+    font-family: 'Cairo', sans-serif;
     background-color: #f0f8ff;
     text-align: center;
     color: #333;
@@ -15,10 +15,11 @@ h1 {
     justify-content: center;
     gap: 30px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .egg {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -56,17 +57,16 @@ h1 {
 #result-container {
     margin-top: 50px;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     min-height: 100px;
     display: inline-block;
-    width: 50%;
+    width: 80%;
+    max-width: 500px;
 }
 
-#result-display {
-    font-size: 24px;
-    font-weight: bold;
-    color: #c9ada7;
-    margin-top: 10px;
+#final-result h3 {
+    font-size: 28px;
+    margin: 10px;
 }
