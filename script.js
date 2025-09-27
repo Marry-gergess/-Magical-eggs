@@ -20,14 +20,20 @@ const masterAnimalList = [
 
     
     // حيوانات Rare
-    { name: "حصان البحر الملكي", price: 1500, rarity: "rare", currency: "لؤلؤة" },
-    { name: "ضفدع", price: 2500, rarity: "rare", currency: "S" },
+    { name: "Puffskein | بفسكين ", price: 1, rarity: "rare", currency: "G" },
+    { name: "Jobberknoll | جوبيرنول", price: 2, rarity: "rare", currency: "G" },
+    { name: " Bowtruckle | بوتروكل", price: 7, rarity: "rare", currency: "G" },
+    { name: "Diricawl | ديريكول ", price: 5, rarity: "rare", currency: "G" },
+    { name: "Porlock | بورلوك", price: 6, rarity: "rare", currency: "G" },
+    { name: "Augurey | أجوري", price: 30, rarity: "rare", currency: "G" },
+    { name: "Fairy | جنية", price: 40, rarity: "rare", currency: "G" },
+    { name: "Mooncalf | مونكالف", price: 10, rarity: "rare", currency: "G" },
 
     // حيوانات Epic
     { name: "ببغاء", price: 15000, rarity: "epic", currency: "ريشة نادرة" },
 
     // حيوانات Legendary
-    { name: "كراكن الأعماق", price: 30000, rarity: "legendary", currency: "جوهرة" },
+    { name: "jj ", price: 1, rarity: "legendary", currency: "G" },
     { name: "سحلية", price: 45000, rarity: "legendary", currency: "جوهرة" },
 
     // حيوانات Mythic
