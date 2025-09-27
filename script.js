@@ -7,9 +7,8 @@ const rarityNames = {
     mythic: "XXXXX"
 };
 
-// --- 2. قائمة الحيوانات الرئيسية (تمت إضافة العملة) ---
 const masterAnimalList = [
-    // حيوانات Common
+    // حيوانات X
     { name: "فأر", price: 6, rarity: "common", currency: "S" },
     { name: "ضفدع", price: 6, rarity: "common", currency: "S" },
     { name: "قطة", price: 10, rarity: "common", currency: "S" },
@@ -18,8 +17,7 @@ const masterAnimalList = [
     { name: "سحلية", price: 10, rarity: "common", currency: "S" },
 
 
-    
-    // حيوانات Rare
+    // حيوانات XX
     { name: "Puffskein | بفسكين ", price: 1, rarity: "rare", currency: "G" },
     { name: "Jobberknoll | جوبيرنول", price: 2, rarity: "rare", currency: "G" },
     { name: " Bowtruckle | بوتروكل", price: 7, rarity: "rare", currency: "G" },
@@ -29,22 +27,21 @@ const masterAnimalList = [
     { name: "Fairy | جنية", price: 40, rarity: "rare", currency: "G" },
     { name: "Mooncalf | مونكالف", price: 10, rarity: "rare", currency: "G" },
 
-    // حيوانات Epic
+    // حيوانات XXX
     { name: "ببغاء", price: 15000, rarity: "epic", currency: "ريشة نادرة" },
 
-    // حيوانات Legendary
+    // حيوانات XXXX
     { name: "jj ", price: 1, rarity: "legendary", currency: "G" },
     { name: "سحلية", price: 45000, rarity: "legendary", currency: "جوهرة" },
 
-    // حيوانات Mythic
+    // حيوانات XXXXX
     { name: "جريفين سماوي", price: 60000, rarity: "mythic", currency: "كريستالة" }
 ];
 
-// --- 3. تعريف حظوظ كل بيضة ---
 const eggProbabilities = {
-    common:    { common: 80, rare: 18, epic: 2, legendary: 0, mythic: 0 },
-    rare:      { common: 25, rare: 55, epic: 15, legendary: 4, mythic: 1 },
-    legendary: { common: 0,  rare: 20, epic: 45, legendary: 25, mythic: 10 }
+    common:    { common: 70, rare: 20, epic: 10, legendary: 0, mythic: 0 },
+    rare:      { common: 30, rare: 50, epic: 20, legendary: 0, mythic: 0 },
+    legendary: { common: 10,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
 };
 
 // --- 4. الدالة الرئيسية لفتح البيضة ---
