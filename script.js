@@ -1,26 +1,35 @@
-// --- 1. تعريف فئات الحيوانات ---
-const animalTiers = {
-    common:    { name: "X",     minPower: 1,      maxPower: 999 },
-    rare:      { name: "XX",    minPower: 1000,   maxPower: 4999 },
-    epic:      { name: "XXX",   minPower: 5000,   maxPower: 19999 },
-    legendary: { name: "XXXX",  minPower: 20000,  maxPower: 49999 },
-    mythic:    { name: "XXXXX", minPower: 50000,  maxPower: 100000 }
+// --- 1. تعريف أسماء الفئات للعرض ---
+const rarityNames = {
+    common: "X",
+    rare: "XX",
+    epic: "XXX",
+    legendary: "XXXX",
+    mythic: "XXXXX"
 };
 
-// --- 2. قائمة الحيوانات الرئيسية ---
+// --- 2. قائمة الحيوانات الرئيسية (مع سعر وفئة لكل حيوان) ---
 const masterAnimalList = [
-    { name: "فأر", power: 50 },
-    { name: "قطة", power: 90 },
-    { name: "كلب", power: 120 },
-    { name: "حصان البحر الملكي", power: 1500 },
-    { name: "ضفدع", power: 2500 },
-    { name: "ببغاء", power: 15000 },
-    { name: "كراكن الأعماق", power: 30000 },
-    { name: "سحلية", power: 45000 },
-    { name: "جريفين سماوي", power: 60000 }
+    // حيوانات Common
+    { name: "فأر", price: 50, rarity: "common" },
+    { name: "قطة", price: 90, rarity: "common" },
+    { name: "كلب", price: 120, rarity: "common" },
+    
+    // حيوانات Rare
+    { name: "حصان البحر الملكي", price: 1500, rarity: "rare" },
+    { name: "ضفدع", price: 2500, rarity: "rare" },
+
+    // حيوانات Epic
+    { name: "ببغاء", price: 15000, rarity: "epic" },
+
+    // حيوانات Legendary
+    { name: "كراكن الأعماق", price: 30000, rarity: "legendary" },
+    { name: "سحلية", price: 45000, rarity: "legendary" },
+
+    // حيوانات Mythic
+    { name: "جريفين سماوي", price: 60000, rarity: "mythic" }
 ];
 
-// --- 3. تعريف حظوظ كل بيضة ---
+// --- 3. تعريف حظوظ كل بيضة (نسب ظهور الفئات) ---
 const eggProbabilities = {
     common:    { common: 80, rare: 18, epic: 2, legendary: 0, mythic: 0 },
     rare:      { common: 25, rare: 55, epic: 15, legendary: 4, mythic: 1 },
@@ -36,34 +45,35 @@ function openEgg(eggType) {
     };
     const selectedEggName = eggNames[eggType];
 
+    // الخطوة أ: اختيار فئة عشوائيًا (مثل 'rare') بناءً على حظوظ البيضة
     const chosenTierKey = getWeightedRandomTier(eggProbabilities[eggType]);
-    const chosenTierInfo = animalTiers[chosenTierKey];
 
-    const possibleAnimals = masterAnimalList.filter(animal =>
-        animal.power >= chosenTierInfo.minPower && animal.power <= chosenTierInfo.maxPower
-    );
+    // الخطوة ب: فلترة قائمة الحيوانات التي تطابق هذه الفئة
+    const possibleAnimals = masterAnimalList.filter(animal => animal.rarity === chosenTierKey);
 
     let chosenAnimal;
     if (possibleAnimals.length > 0) {
+        // الخطوة ج: اختيار حيوان عشوائي من القائمة المفلترة
         chosenAnimal = possibleAnimals[Math.floor(Math.random() * possibleAnimals.length)];
     } else {
-        const fallbackTier = getFallbackTier(chosenTierKey);
-        const fallbackAnimals = masterAnimalList.filter(animal =>
-            animal.power >= fallbackTier.minPower && animal.power <= fallbackTier.maxPower
-        );
+        // خيار احتياطي: إذا لم نجد حيوانًا، ابحث في الفئة الأقل
+        const fallbackTierKey = getFallbackTierKey(chosenTierKey);
+        const fallbackAnimals = masterAnimalList.filter(animal => animal.rarity === fallbackTierKey);
         if (fallbackAnimals.length > 0) {
             chosenAnimal = fallbackAnimals[Math.floor(Math.random() * fallbackAnimals.length)];
         } else {
-            chosenAnimal = { name: "بيضة فارغة", power: 0 };
+            // إذا لم نجد أي حيوان حتى في الفئة الاحتياطية
+            chosenAnimal = { name: "بيضة فارغة", price: 0, rarity: "common" };
         }
     }
 
-    const finalRarityName = getTierByPower(chosenAnimal.power).name;
+    // الحصول على اسم الندرة للعرض (مثل "XX")
+    const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
 
     // تجهيز الرابط لإرسال البيانات إلى صفحة result.html
     const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
                           `&name=${encodeURIComponent(chosenAnimal.name)}` +
-                          `&price=${chosenAnimal.power}` + // سنستخدم اسم price هنا
+                          `&price=${chosenAnimal.price}` +
                           `&rarity=${encodeURIComponent(finalRarityName)}`;
 
     // الانتقال إلى صفحة النتائج
@@ -80,25 +90,16 @@ function getWeightedRandomTier(chances) {
             return tier;
         }
     }
-    return 'common';
+    return 'common'; // العودة للفئة الأساسية كخيار احتياطي
 }
 
-function getTierByPower(power) {
-    for (const tierKey in animalTiers) {
-        const tier = animalTiers[tierKey];
-        if (power >= tier.minPower && power <= tier.maxPower) {
-            return tier;
-        }
-    }
-    return { name: "غير محدد" };
-}
-
-function getFallbackTier(failedTierKey) {
-    const tierKeys = Object.keys(animalTiers);
+// دالة احتياطية لاختيار فئة أقل في حال كانت الفئة المختارة فارغة
+function getFallbackTierKey(failedTierKey) {
+    const tierKeys = ['common', 'rare', 'epic', 'legendary', 'mythic'];
     const failedIndex = tierKeys.indexOf(failedTierKey);
     if (failedIndex > 0) {
-        const fallbackKey = tierKeys[failedIndex - 1];
-        return animalTiers[fallbackKey];
+        // إرجاع الفئة الأقل مباشرة
+        return tierKeys[failedIndex - 1];
     }
-    return animalTiers.common;
+    return 'common'; // إذا فشلت الفئة common، حاول مرة أخرى معها
 }
