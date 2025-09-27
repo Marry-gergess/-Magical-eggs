@@ -10,9 +10,14 @@ const rarityNames = {
 // --- 2. قائمة الحيوانات الرئيسية (تمت إضافة العملة) ---
 const masterAnimalList = [
     // حيوانات Common
-    { name: "فأر", price: 50, rarity: "common", currency: "قطعة جبن" },
-    { name: "قطة", price: 90, rarity: "common", currency: "S" },
-    { name: "كلب", price: 120, rarity: "common", currency: "S" },
+    { name: "فأر", price: 6, rarity: "common", currency: "S" },
+    { name: "ضفدع", price: 6, rarity: "common", currency: "S" },
+    { name: "قطة", price: 10, rarity: "common", currency: "S" },
+    { name: "كلب", price: 10, rarity: "common", currency: "S" },
+    { name: "ببغاء", price: 10, rarity: "common", currency: "S" },
+    { name: "سحلية", price: 10, rarity: "common", currency: "S" },
+
+
     
     // حيوانات Rare
     { name: "حصان البحر الملكي", price: 1500, rarity: "rare", currency: "لؤلؤة" },
