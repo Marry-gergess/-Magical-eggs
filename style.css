@@ -81,3 +81,9 @@ h2 {
     font-size: 28px;
     margin: 10px;
 }
+
+.subtitle {
+    color: white;
+    font-size: 1.1em; /* اختياري: لتكبير الخط قليلاً */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* اختياري: لإضافة ظل خفيف للنص لجعله أوضح */
+}
