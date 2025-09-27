@@ -21,24 +21,25 @@
     </a>
 
     <script>
-        // هذا السكريبت الصغير خاص بصفحة النتائج فقط
         window.onload = function() {
             const resultDiv = document.getElementById('final-result');
             const urlParams = new URLSearchParams(window.location.search);
 
-            // قراءة البيانات من الرابط
+            // قراءة البيانات من الرابط (تمت إضافة العملة)
             const eggName = urlParams.get('egg');
             const animalName = urlParams.get('name');
-            const animalPrice = urlParams.get('price'); // استقبال السعر
+            const animalPrice = urlParams.get('price');
             const animalRarity = urlParams.get('rarity');
-            
+            const animalCurrency = urlParams.get('currency'); // <-- استقبال العملة الجديدة
+
             if (animalName && eggName && animalPrice !== null && animalRarity) {
+                // عرض النتيجة (تم تعديل سطر السعر)
                 resultDiv.innerHTML = `
                     <p>لقد اخترت: <strong>${eggName}</strong></p>
                     <hr style="margin: 10px 0;">
                     <p>وظهر لك:</p>
                     <h3>${animalName}</h3>
-                    <p>السعر: ${animalPrice} S</p> <p>الندرة: ${animalRarity}</p>
+                    <p>السعر: ${animalPrice} ${animalCurrency}</p> <p>الندرة: ${animalRarity}</p>
                 `;
             } else {
                 resultDiv.innerHTML = "<p>عفواً، لم يتم العثور على نتيجة. حاول مرة أخرى من الصفحة الرئيسية.</p>";
