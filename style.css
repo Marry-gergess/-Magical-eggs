@@ -2,21 +2,18 @@
 body {
     font-family: 'Cairo', sans-serif;
 
-    /* --- بداية الكود الجديد للخلفية --- */
-    background-image: url('images/background.jpg'); /* <-- تأكدي أن مسار واسم الصورة صحيحان */
-    background-size: cover;           /* لجعل الصورة تملأ الشاشة بالكامل */
-    background-position: center;      /* لتركيز الصورة في المنتصف */
-    background-repeat: no-repeat;     /* لمنع تكرار الصورة إذا كانت صغيرة */
-    background-attachment: fixed;     /* لتثبيت الخلفية عند تحريك الصفحة لأسفل */
-    /* --- نهاية الكود الجديد للخلفية --- */
-
+    background-image: url('images/background.jpg');
+    background-size: cover;         
+    background-position: center;    
+    background-repeat: no-repeat;     
+    background-attachment: fixed;    
     text-align: center;
     color: #333;
     padding: 20px;
 }
 
 h1 {
-    color: #4a4e69;
+    color: #ffffff;
 }
 
 .egg-container {
