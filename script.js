@@ -1,4 +1,3 @@
-// --- 1. تعريف أسماء الفئات للعرض ---
 const rarityNames = {
     common: "X",
     rare: "XX",
@@ -86,7 +85,6 @@ function openEgg(eggType) {
 
     const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
 
-    // تجهيز الرابط (تمت إضافة العملة هنا)
     const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
                           `&name=${encodeURIComponent(chosenAnimal.name)}` +
                           `&price=${chosenAnimal.price}` +
@@ -96,7 +94,6 @@ function openEgg(eggType) {
     window.location.href = 'result.html' + queryString;
 }
 
-// --- 5. الدوال المساعدة ---
 function getWeightedRandomTier(chances) {
     const rand = Math.random() * 100;
     let cumulativeChance = 0;
