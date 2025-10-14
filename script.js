@@ -53,7 +53,7 @@ const masterAnimalList = [
 ];
 
 const eggProbabilities = {
-    common:    { common: 40, rare: 40, epic: 10, legendary: 0, mythic: 0 },
+    common:    { common: 30, rare: 50, epic: 10, legendary: 0, mythic: 0 },
     rare:      { common: 20, rare: 50, epic: 30, legendary: 0, mythic: 0 },
     legendary: { common: 10,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
 };
