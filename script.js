@@ -58,7 +58,7 @@ const eggProbabilities = {
     legendary: { common: 5,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
 };
 
-// --- 4. الدالة الرئيسية لفتح البيضة ---
+
 function openEgg(eggType) {
     const eggNames = {
         common: "بيضة عادية (Common)",
