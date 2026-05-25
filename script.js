@@ -7,7 +7,7 @@ const rarityNames = {
     mythic: "XXXXX"
 };
 
-// --- 2. قائمة الحيوانات السحرية المحدثة ---
+// --- 2. قائمة الحيوانات السحرية المحدثة لعالم هاري بوتر ---
 const masterAnimalList = [
     // حيوانات X
     { name: "Rat | فأر", price: 6, rarity: "common", currency: "S" },
@@ -59,15 +59,16 @@ const eggProbabilities = {
     legendary: { common: 5,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
 };
 
-// --- 4. الدالة الرئيسية لفتح البيضة (معدلة لتطلب الاسم إجباري أولاً) ---
-function openEgg(eggType) {
-    // طلب الاسم بشكل إجباري قبل فتح البيضة
-    let playerName = prompt("من فضلك أدخل اسمك أولاً لفتح البيضة السحرية وتسجيل التيكت (ضروري):");
-    
-    // إذا ضغط إلغاء أو ساب الخانة فاضية، العملية بتقف تماماً والبيضة مش بتفتح
-    if (playerName === null || playerName.trim() === "") {
-        alert("عذراً، يجب إدخال اسمك لتتمكن من فتح البيضة وحفظ جائزتك في المتجر!");
-        return; 
+function startOpening() {
+    // جلب قيم المدخلات من الاستمارة
+    const playerName = document.getElementById('player-name').value.trim();
+    const discordTicket = document.getElementById('discord-ticket').value.trim();
+    const eggType = document.getElementById('egg-select').value;
+
+    // التحقق من تعبئة الحقول الإجبارية
+    if (playerName === "" || discordTicket === "") {
+        alert("من فضلك املأ حقل الاسم وحقل رقم تيكت ديسكورد لتتمكن من فتح البيضة السحرية!");
+        return;
     }
 
     const eggNames = {
@@ -77,7 +78,7 @@ function openEgg(eggType) {
     };
     const selectedEggName = eggNames[eggType];
 
-    // اختيار الفئة والحيوان عشوائياً بناءً على النسب
+    // اختيار الحيوان بناءً على نسب البيضة المختارة
     const chosenTierKey = getWeightedRandomTier(eggProbabilities[eggType]);
     const possibleAnimals = masterAnimalList.filter(animal => animal.rarity === chosenTierKey);
 
@@ -96,18 +97,18 @@ function openEgg(eggType) {
 
     const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
 
-    // تمرير البيانات مع اسم الشخص الجاهز لصفحة result.html
+    // تجميع البيانات وتمريرها لصفحة النتائج عبر الرابط
     const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
                           `&name=${encodeURIComponent(chosenAnimal.name)}` +
                           `&price=${chosenAnimal.price}` +
                           `&rarity=${encodeURIComponent(finalRarityName)}` +
                           `&currency=${encodeURIComponent(chosenAnimal.currency)}` +
-                          `&player=${encodeURIComponent(playerName.trim())}`; // تمرير اسم اللاعب
+                          `&player=${encodeURIComponent(playerName)}` +
+                          `&discord=${encodeURIComponent(discordTicket)}`;
 
     window.location.href = 'result.html' + queryString;
 }
 
-// --- 5. الدوال المساعدة للحسابات ---
 function getWeightedRandomTier(chances) {
     const rand = Math.random() * 100;
     let cumulativeChance = 0;
