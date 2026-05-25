@@ -1,137 +1,159 @@
+/* --- 1. خلفية الصفحة الإجمالية --- */
 body {
-    font-family: 'Cairo', sans-serif;
-    background-image: url('images/background.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    text-align: center;
-    color: white;
-    padding: 25px;
-    margin: 0;
+    font-family: 'Cairo', sans-serif;                /* تحديد نوع الخط المستدعى من جوجل */
+    background-image: url('images/background.jpg');  /* وضع صورة شجرة الفينكس السحرية كخلفية */
+    background-size: cover;                          /* تمديد الصورة لتغطي الشاشة بالكامل دون تشويه */
+    background-position: center;                     /* تملأ الصورة الشاشة بدءاً من المنتصف */
+    background-repeat: no-repeat;                    /* منع تكرار الصورة إذا كانت الشاشة كرت شاشة كبير */
+    background-attachment: fixed;                    /* تثبيت الخلفية عند التمرير (تعطي تأثير parallax احترافي) */
+    text-align: center;                              /* توسيط محاذاة كافة النصوص داخل الصفحة */
+    color: Black;                                    /* اللون الافتراضي لنصوص الصفحة */
+    padding: 25px;                                   /* مسافة أمان داخلية من أطراف الشاشة */
+    margin: 0;                                       /* إلغاء الهوامش الافتراضية للمتصفح */
 }
 
+/* --- 2. الحاوية الكبرى للعبة --- */
 .game-container {
-    max-width: 1000px;
-    margin: 30px auto;
+    max-width: 1000px;                               /* أقصى عرض مسموح للمحتوى ليظهر متناسقاً */
+    margin: 30px auto;                               /* مسافة 30px من الأعلى والأسفل، و "auto" لتوسيط الحاوية أفقياً */
 }
 
+/* --- 3. العنوان الفرعي --- */
 .subtitle {
-    color: rgba(255, 255, 255, 0,4 );
-    font-size: 20px;
-    text-shadow: 1px 1px 4px rgb(0, 0, 0 );
-    margin-bottom: 25px;
+    font-size: 20px;                                 /* حجم خط العنوان الفرعي */
+    text-shadow: 1px 1px 4px rgb(0, 0, 0);           /* ظل أسود خلف النص ليجعله مقروءاً فوق الخلفية */
+    margin-bottom: 25px;                             /* مسافة تبعده عن خانات البيانات التي تحته */
+    
+    /* 🎨 للتحكم في لون النص الفرعي (أدخل بياناتك السحرية أولاً...) */
+    color: rgba(255, 255, 255, 0.8);                 /* يمكنكِ التحكم في درجة شفافيته ولونه من هنا */
 }
 
-/* خانات البيانات فوق */
+/* --- 4. مستطيل البيانات العلوي (الاسم والتيكت) --- */
 .user-info-container {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
-    text-align: right;
-    max-width: 600px;
-    margin: 0 auto 30px auto; 
-    display: flex;
-    gap: 15px; 
-    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.5);      /* خلفية بيضاء شفافة بنسبة 50% تظهر تفاصيل الشجرة خلفها */
+    padding: 20px;                                   /* مسافة داخلية مريحة حول الخانات */
+    border-radius: 15px;                             /* زوايا منحنية أنيقة للمستطيل */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);       /* ظل أسود داكن وقوي لبروز المستطيل عن الخلفية */
+    text-align: right;                               /* محاذاة النصوص والأسماء لليمين لتناسب اللغة العربية */
+    max-width: 600px;                                /* تحجيم المستطيل ليكون ملموماً ومريحاً للعين */
+    margin: 0 auto 30px auto;                        /* توسيط المستطيل وترك مسافة 30px تحته */
+    display: flex;                                   /* استخدام نظام Flexbox لتنسيق العناصر داخله */
+    gap: 15px;                                       /* مسافة فاصلة بين خانة الاسم وخانة التيكت */
+    flex-wrap: wrap;                                 /* السماح بنزول الخانات تحت بعضها في الشاشات الصغيرة للموبايل */
+    
 }
 
+/* --- 5. مجموعات الإدخال --- */
 .input-group {
-    flex: 1;
-    min-width: 250px;
+    flex: 1;                                         /* تجعل خانة الاسم وخانة التيكت تتقاسمان المساحة بالتساوي */
+    min-width: 250px;                                /* الحد الأدنى لعرض الخانة قبل أن تنزل لسطر جديد */
 }
 
+/* 🎨 نصوص أسماء الخانات (الاسم المروض / رقم تيكت ديسكورد) */
 .input-group label {
-    display: block;
-    font-weight: bold;
-    color: #4a4e69;
-    margin-bottom: 6px;
-    font-size: 15px;
+    display: block;                                  /* جعل الكلمة تظهر في سطر مستقل فوق خانة الكتابة مباشرة */
+    font-weight: bold;                               /* جعل الخط عريضاً وواضحاً */
+    margin-bottom: 6px;                              /* مسافة بسيطة تفصل الاسم عن صندوق الكتابة التابع له */
+    font-size: 15px;                                 /* حجم خط أسماء الخانات */
+    
+    /* 🎨 للتحكم في لون كلمات (الاسم المروض) و (رقم تيكت ديسكورد) */
+    color: #ffffff;                                  /* يمكنكِ تغييره لأي لون باستيل يناسب رؤيتك */
 }
 
+/* صناديق الكتابة الفعلية (Inputs) */
 .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: 'Cairo', sans-serif;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
+    width: 100%;                                     /* يملأ الصندوق كامل المساحة المتاحة له */
+    padding: 10px;                                   /* مسافة داخلية لكي لا يلتصق النص المكتوب بالحواف */
+    border: 2px solid #ccc;                          /* إطار رمادي خفيف حول الصندوق */
+    border-radius: 8px;                              /* انحناء بسيط لزوايا الصندوق */
+    font-size: 15px;                                 /* حجم خط النص عند الكتابة */
+    font-family: 'Cairo', sans-serif;                /* تطبيق خط قاهرة داخل الصناديق */
+    box-sizing: border-box;                          /* يضمن حساب الـ padding من ضمن العرض الإجمالي للصندوق */
+    transition: border-color 0.3s;                   /* نعومة مدتها 0.3 ثانية عند تغير لون الإطار */
+    
+    /* 🎨 للتحكم في لون النص المكتوب داخل خانات الإدخال والـ Placeholder */
+    color: #22223b;                                  /* لون النص عند كتابة اللاعب لاسمه أو التيكت */
 }
 
+/* حالة الضغط والتحديد داخل صندوق الكتابة */
 .input-group input:focus {
-    border-color: #f5ff82; 
-    outline: none;
+    border-color: #f5ff82;                           /* يتغير لون الإطار للأصفر المشرق المبهج عند وقوف الماوس فيه */
+    outline: none;                                   /* إلغاء الإطار الأزرق الافتراضي للمتصفحات */
 }
 
-/* حاوية المربعات */
+/* --- 6. حاوية الكروت (المربعات) --- */
 .egg-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    display: flex;                                   /* تفعيل نظام المرونة لترتيب المربعات بجانب بعضها */
+    justify-content: center;                         /* توسيط المربعات الثلاثة في منتصف الشاشة تماماً */
+    gap: 25px;                                       /* مسافة فاصلة بمقدار 25px بين كل مربع ومربع */
+    flex-wrap: wrap;                                 /* تصفيف الكروت تحت بعضها تلقائياً على الموبايل */
+    margin-top: 20px;                                /* مسافة علوية تفصل الكروت عن مستطيل البيانات */
 }
 
-/* الكارت المربع الملموم */
+/* --- 7. الكارت المربع الملموم لكل بيضة --- */
 .egg-card {
-    background-color: rgba(255, 255, 255, 0.88);
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    overflow: hidden; /* بيحافظ على الصورة جوه الكارت */
+    background-color: rgba(255, 255, 255, 0.88);      /* خلفية بيضاء ناصعة وشبه معتمة لبروز عناصر البيضة */
+    padding: 25px;                                   /* مسافة داخلية من كافة الاتجاهات لحماية العناصر */
+    border-radius: 20px;                             /* زوايا الكارت دائرية بشكل انسيابي ممتاز */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);          /* ظل خفيف وناعم يعطي إيحاء بالعمق */
+    width: 240px;                                    /* تحديد عرض ثابت ومثالي ليعطي شكلاً مربعاً للكارت */
+    display: flex;                                   /* تفعيل التصميم المرن داخلياً */
+    flex-direction: column;                          /* ترتيب محتويات الكارت عمودياً (صورة، ثم اسم، ثم زر) */
+    justify-content: center;                         /* توسيط العناصر عمودياً داخل الكارت */
+    align-items: center;                             /* توسيط العناصر أفقياً داخل الكارت */
+    transition: transform 0.3s, box-shadow 0.3s;     /* تأثير سلس للمؤثرات البصرية عند مرور الماوس */
+    overflow: hidden;                                /* حارس البوابة: يضمن بقاء صورة البيضة داخل انحناء الكارت */
 }
 
+/* تأثير حركة الكارت عند مرور الماوس (Hover) */
 .egg-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transform: translateY(-8px);                     /* يرتفع الكارت لأعلي بمقدار 8px بشكل تفاعلي مبهر */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);         /* يصبح الظل أعمق وأكبر ليعطي إيحاء بالطيران */
 }
 
+/* صور البيض داخل الكروت */
 .egg-image {
-    max-width: 100%;
-    max-height: 120px;
-    object-fit: contain;
-    margin-bottom: 15px;
+    max-width: 100%;                                 /* لا تسمح للصورة أن تخرج عن عرض الكارت الأصلي */
+    max-height: 120px;                               /* تحجيم الارتفاع لتأمين بقائها في النصف العلوي للكارت */
+    object-fit: contain;                             /* الحفاظ على أبعاد الصورة الأصلية ونقائها دون تمطيط */
+    margin-bottom: 15px;                             /* مسافة تفصل الصورة عن اسم البيضة المكتوب تحتها */
 }
 
+/* 🎨 عناوين أسماء البيض (بيضة عادية / نادرة / أسطورية) */
 .egg-card h3 {
-    color: #4a4e69;
-    margin: 5px 0 20px 0;
-    font-size: 1.4em;
+    margin: 5px 0 20px 0;                            /* هوامش منسقة: مسافة خفيفة فوق، و 20px تحت لفصلها عن الزر */
+    font-size: 1.4em;                                /* حجم خط اسم البيضة لتكون بارزة */
+    
+    /* 🎨 للتحكم في لون أسماء البيض داخل الكروت */
+    color: #4a4e69;                                  /* يمكنكِ تغييره بما يتماشى مع ألوان متجركِ */
 }
 
-/* أزرار الفتح */
+/* --- 8. أزرار الفتح السحرية داخل الكروت --- */
 .open-egg-btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #4a4e69;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    display: block;                                  /* جعل الزر يأخذ العرض الكامل المتاح له في الكارت */
+    width: 100%;                                     /* تمديد العرض بنسبة 100% */
+    padding: 12px;                                   /* مسافة مريحة ليكون الزر عريضاً وسهل الضغط */
+    background-color: #4a4e69;                       /* لون الزر الافتراضي */
+    color: white;                                    /* لون نص كلمة الفتح داخل الزر */
+    border: none;                                    /* إلغاء الإطارات التقليدية المزعجة */
+    border-radius: 8px;                              /* زوايا مستديرة ناعمة ومتناسقة مع الكارت */
+    font-size: 15px;                                 /* حجم خط كلمة الفتح */
+    font-weight: bold;                               /* جعل نص الزر عريضاً وواضحاً */
+    cursor: pointer;                                 /* تحويل مؤشر الماوس ليد (Pointer) عند الوقوف عليه */
+    transition: background-color 0.3s;               /* تدرج ناعم عند تغير الألوان */
 }
 
+/* تأثير الزر عند مرور الماوس */
 .open-egg-btn:hover {
-    background-color: #22223b;
+    background-color: #22223b;                       /* يتحول الزر للون داكن مبهج يعطي رد فعل تفاعلي للاعب */
 }
 
+/* --- 9. حاوية صفحة النتيجة (Result Container) --- */
 #result-container {
-    margin: 40px auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    max-width: 500px;
+    margin: 40px auto;                               /* مسافة 40px فوق وتحت وتوسيط الحاوية أفقياً */
+    padding: 30px;                                   /* مساحات داخلية واسعة لعرض تفاصيل الجائزة والحيوان النادر */
+    background-color: rgba(255, 255, 255, 0.4);      /* خلفية بيضاء شفافة بنسبة 40% تتناسب مع شكل صفحة البيانات */
+    border-radius: 20px;                             /* زوايا مستديرة رائعة للوحة النتيجة */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);          /* ظل ناعم وقوي يضمن بروز لوحة النتيجة السحرية */
+    max-width: 500px;                                /* عرض ملموم لتركيز عين اللاعب على مكافأته */
 }
