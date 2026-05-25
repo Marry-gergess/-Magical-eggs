@@ -59,16 +59,16 @@
                 .then(() => {
                     // عرض الفرد السحري والبيانات الموثقة للاعب
                     resultDiv.innerHTML = `
-                        <p style="font-size: 18px;">المروض: <strong style="color: #4a4e69;">${playerName}</strong></p>
+                        <p style="font-size: 18px;"> الاسم السحري: <strong style="color: #4a4e69;">${playerName}</strong></p>
                         <p style="font-size: 16px; background: #e2ece9; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #2a9d8f;">
-                            تيكت ديسكورد الموثق: ${discordTicket}
+                           رقم تيكت ديسكورد  : ${discordTicket}
                         </p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
                         <p>لقد اخترت: <strong>${eggName}</strong></p>
-                        <p>وظهر لك المخلوق السحري التالي:</p>
+                        <p> وظهر لك المخلوق السحري التالي:</p>
                         <h3 style="font-size: 32px; color: #d90429; margin: 10px 0;">${animalName}</h3>
-                        <p>السعر المحدد: ${animalPrice} ${animalCurrency}</p>
-                        <p>تصنيف الندرة: ${animalRarity}</p>
+                        <p>السعر : ${animalPrice} ${animalCurrency}</p>
+                        <p>تصنيف وزارة السحر: ${animalRarity}</p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
                     `;
                 })
@@ -78,7 +78,7 @@
                 });
 
             } else {
-                resultDiv.innerHTML = "<p>عفواً، هناك بيانات ناقصة. يرجى ملء جميع البيانات .</p>";
+                resultDiv.innerHTML = "<p> عفواً، هناك بيانات ناقصة. يرجى ملء جميع البيانات .</p>";
             }
         };
     </script>
