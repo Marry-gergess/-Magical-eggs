@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>النتيجة السحرية!</title>
+    <title>مبروك تم فتح البيضة ى :!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>النتيجة التي حصلت عليها:</h1>
+    <h1>المخلوق الذي حصلت عليها:</h1>
 
     <div id="result-container">
         <div id="final-result">
-            <p>جاري تحميل حيوانك السحري وتأمين التيكت في السيرفر...</p>
+            <p> جاري فتح البيضة السحرية...</p>
         </div>
     </div>
 
     <a href="index.html" style="text-decoration: none;">
-        <button class="open-btn" style="max-width: 200px; margin: 20px auto;">فتح بيضة أخرى</button>
+        <button class="open-btn" style="max-width: 300px; margin: 30px auto;">فتح بيضة أخرى</button>
     </a>
 
     <script>
@@ -65,21 +65,20 @@
                         </p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
                         <p>لقد اخترت: <strong>${eggName}</strong></p>
-                        <p>وظهر لك الفرد السحري التالي:</p>
+                        <p>وظهر لك المخلوق السحري التالي:</p>
                         <h3 style="font-size: 32px; color: #d90429; margin: 10px 0;">${animalName}</h3>
                         <p>السعر المحدد: ${animalPrice} ${animalCurrency}</p>
                         <p>تصنيف الندرة: ${animalRarity}</p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
-                        <p style="color: green; font-weight: bold; font-size: 14px;">✅ تم تسجيل جائزتك بنجاح في الجوجل شيت برقم التيكت الخاص بك!</p>
                     `;
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    resultDiv.innerHTML = `<p style="color: red;">حدث خطأ أثناء الاتصال بالسيرفر لحفظ التيكت.</p>`;
+                    resultDiv.innerHTML = `<p style="color: red;">حدث خطأ حاول مرة اخرى.</p>`;
                 });
 
             } else {
-                resultDiv.innerHTML = "<p>عفواً، هناك بيانات ناقصة. يرجى ملء الاستمارة من الصفحة الرئيسية.</p>";
+                resultDiv.innerHTML = "<p>عفواً، هناك بيانات ناقصة. يرجى ملء جميع البيانات .</p>";
             }
         };
     </script>
