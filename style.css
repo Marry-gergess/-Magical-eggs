@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-    color: white;
+    color: (255,255,255,0.8);
     padding: 20px;
     margin: 0;
 }
