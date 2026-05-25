@@ -3,39 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر آل بوتر للحيوانات السحرية</title>
+    <title>النتيجة السحرية!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="game-container">
-        <h1>متجر آل بوتر للحيوانات السحرية</h1>
-        <p class="subtitle">أدخل بياناتك السحرية وافتح بيضتك الآن!</p>
+    <h1>النتيجة التي حصلت عليها:</h1>
 
-        <div class="form-container">
-            <div class="input-group">
-                <label for="player-name">الاسم المروض:</label>
-                <input type="text" id="player-name" placeholder="اكتب اسمك هنا..." required>
-            </div>
-
-            <div class="input-group">
-                <label for="discord-ticket">رقم تيكت ديسكورد:</label>
-                <input type="text" id="discord-ticket" placeholder="مثال: #1122..." required>
-            </div>
-
-            <div class="input-group">
-                <label for="egg-select">اختر نوع البيضة السحرية:</label>
-                <select id="egg-select">
-                    <option value="common">بيضة عادية (X - Common)</option>
-                    <option value="rare">بيضة نادرة (XX - Rare)</option>
-                    <option value="legendary">بيضة أسطورية (XXXX - Legendary)</option>
-                </select>
-            </div>
-
-            <button type="button" class="open-btn" onclick="startOpening()">افتح البيضة السحرية الآن 🌟</button>
+    <div id="result-container">
+        <div id="final-result">
+            <p>جاري تحميل حيوانك السحري وتأمين التيكت في السيرفر...</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <a href="index.html" style="text-decoration: none;">
+        <button class="open-btn" style="max-width: 200px; margin: 20px auto;">فتح بيضة أخرى</button>
+    </a>
+
+    <script>
+        window.onload = function() {
+            const resultDiv = document.getElementById('final-result');
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const eggName = urlParams.get('egg');
+            const animalName = urlParams.get('name');
+            const animalPrice = urlParams.get('price');
+            const animalRarity = urlParams.get('rarity');
+            const animalCurrency = urlParams.get('currency');
+            const playerName = urlParams.get('player');
+            const discordTicket = urlParams.get('discord');
+
+            if (animalName && eggName && playerName && discordTicket) {
+                
+                // تجهيز حزمة البيانات المطابقة لكود الـ Apps Script
+                const dataToSend = {
+                    playerName: playerName,
+                    discordTicket: discordTicket,
+                    eggType: eggName,
+                    animalName: animalName
+                };
+
+                // ⚠️ ضعي الرابط الخاص بكِ بين علامتي التنصيص بالأسفل:
+                const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzGvmTbGGsEBfO04QxxOViJKjaCOSrxMZmFG_VfR5KtdUOWqCwjJLylMAP86eBSwB2Esw/exec";
+
+                // إرسال البيانات صامتة وآمنة فوراً للجوجل شيت
+                fetch(googleScriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataToSend)
+                })
+                .then(() => {
+                    // عرض الفرد السحري والبيانات الموثقة للاعب
+                    resultDiv.innerHTML = `
+                        <p style="font-size: 18px;">المروض: <strong style="color: #4a4e69;">${playerName}</strong></p>
+                        <p style="font-size: 16px; background: #e2ece9; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #2a9d8f;">
+                            تيكت ديسكورد الموثق: ${discordTicket}
+                        </p>
+                        <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                        <p>لقد اخترت: <strong>${eggName}</strong></p>
+                        <p>وظهر لك الفرد السحري التالي:</p>
+                        <h3 style="font-size: 32px; color: #d90429; margin: 10px 0;">${animalName}</h3>
+                        <p>السعر المحدد: ${animalPrice} ${animalCurrency}</p>
+                        <p>تصنيف الندرة: ${animalRarity}</p>
+                        <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                        <p style="color: green; font-weight: bold; font-size: 14px;">✅ تم تسجيل جائزتك بنجاح في الجوجل شيت برقم التيكت الخاص بك!</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultDiv.innerHTML = `<p style="color: red;">حدث خطأ أثناء الاتصال بالسيرفر لحفظ التيكت.</p>`;
+                });
+
+            } else {
+                resultDiv.innerHTML = "<p>عفواً، هناك بيانات ناقصة. يرجى ملء الاستمارة من الصفحة الرئيسية.</p>";
+            }
+        };
+    </script>
 </body>
 </html>
