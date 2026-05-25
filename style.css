@@ -23,7 +23,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* حاوية خانات البيانات (الاسم والتيكت في الأعلى) */
+/* حاوية خانات البيانات (فوق) */
 .user-info-container {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
@@ -62,11 +62,11 @@ body {
 }
 
 .input-group input:focus {
-    border-color: #f5ff82; /* التوهج باللون الأصفر الباستيل عند التحديد */
+    border-color: #f5ff82; 
     outline: none;
 }
 
-/* حاوية البيض المرنة لتنسيقها بجانب بعضها */
+/* حاوية البيض (عرض مرن ليأتي بجانب بعضه) */
 .egg-container {
     display: flex;
     justify-content: center;
@@ -81,9 +81,12 @@ body {
     padding: 25px;
     border-radius: 20px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    width: 240px;
+    width: 240px; /* عرض مناسب للمربع */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
 }
 
 .egg-card:hover {
@@ -91,7 +94,7 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.egg-card img {
+.egg-image {
     width: 140px;
     height: 140px;
     object-fit: contain;
@@ -104,7 +107,7 @@ body {
     font-size: 1.3em;
 }
 
-/* شارات تصنيفات الندرة الملونة */
+/* شارات الندرة الملونة */
 .rarity-tag {
     display: inline-block;
     padding: 3px 12px;
@@ -117,7 +120,7 @@ body {
 .rare-tag { background-color: #f4a261; color: white; }
 .legendary-tag { background-color: #e63946; color: white; }
 
-/* أزرار الفتح داخل كل مربع */
+/* أزرار الفتح */
 .open-egg-btn {
     display: block;
     width: 100%;
