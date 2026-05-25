@@ -110,7 +110,7 @@ function startOpeningCustom(eggType) {
                           `&player=${encodeURIComponent(playerName)}` +
                           `&discord=${encodeURIComponent(discordTicket)}`;
 
-    window.location.href = 'result.html' + queryString;
+    window.location.href = 'result.html' + queryString ;
 }
 
 function getWeightedRandomTier(chances) {
