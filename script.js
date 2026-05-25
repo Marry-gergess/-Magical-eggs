@@ -7,7 +7,7 @@ const rarityNames = {
     mythic: "XXXXX"
 };
 
-// --- 2. قائمة الحيوانات السحرية المحدثة لعالم هاري بوتر ---
+// --- 2. قائمة الحيوانات السحرية ---
 const masterAnimalList = [
     // حيوانات X
     { name: "Rat | فأر", price: 6, rarity: "common", currency: "S" },
@@ -59,15 +59,21 @@ const eggProbabilities = {
     legendary: { common: 5,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
 };
 
-function startOpening() {
-    // جلب قيم المدخلات من الاستمارة
-    const playerName = document.getElementById('player-name').value.trim();
-    const discordTicket = document.getElementById('discord-ticket').value.trim();
-    const eggType = document.getElementById('egg-select').value;
+// --- 4. الدالة الرئيسية لفتح البيضة ---
+function startOpeningCustom(eggType) {
+    const playerNameField = document.getElementById('player-name');
+    const discordTicketField = document.getElementById('discord-ticket');
 
-    // التحقق من تعبئة الحقول الإجبارية
+    if (!playerNameField || !discordTicketField) {
+        alert("خطأ: لم يتم العثور على خانات الإدخال في الصفحة!");
+        return;
+    }
+
+    const playerName = playerNameField.value.trim();
+    const discordTicket = discordTicketField.value.trim();
+
     if (playerName === "" || discordTicket === "") {
-        alert("من فضلك املأ حقل الاسم وحقل رقم تيكت ديسكورد لتتمكن من فتح البيضة السحرية!");
+        alert("من فضلك أدخل الاسم ورقم تيكت ديسكورد أولاً قبل فتح البيضة!");
         return;
     }
 
@@ -78,7 +84,6 @@ function startOpening() {
     };
     const selectedEggName = eggNames[eggType];
 
-    // اختيار الحيوان بناءً على نسب البيضة المختارة
     const chosenTierKey = getWeightedRandomTier(eggProbabilities[eggType]);
     const possibleAnimals = masterAnimalList.filter(animal => animal.rarity === chosenTierKey);
 
@@ -97,7 +102,6 @@ function startOpening() {
 
     const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
 
-    // تجميع البيانات وتمريرها لصفحة النتائج عبر الرابط
     const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
                           `&name=${encodeURIComponent(chosenAnimal.name)}` +
                           `&price=${chosenAnimal.price}` +
