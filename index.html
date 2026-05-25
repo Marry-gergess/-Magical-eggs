@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البيض السحري</title>
+    <title>متجر آل بوتر للحيوانات السحرية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1> متجر آل بوتر للحيوانات السحرية </h1>
-<p class="subtitle">اختر بيضة سحرية لترى ما بداخلها!</p>
-    
-    <div class="egg-container">
-        <div class="egg" id="common-egg">
-            <img src="images/common-egg.png" alt="بيضة عادية">
-            <button onclick="openEgg('common')">افتح بيضة عادية</button>
-        </div>
-        <div class="egg" id="rare-egg">
-            <img src="images/rare-egg.png" alt="بيضة نادرة">
-            <button onclick="openEgg('rare')">افتح بيضة نادرة</button>
-        </div>
-        <div class="egg" id="legendary-egg">
-            <img src="images/legendary-egg.png" alt="بيضة أسطورية">
-            <button onclick="openEgg('legendary')">افتح بيضة أسطورية</button>
+    <div class="game-container">
+        <h1>متجر آل بوتر للحيوانات السحرية</h1>
+        <p class="subtitle">أدخل بياناتك السحرية وافتح بيضتك الآن!</p>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label for="player-name">الاسم المروض:</label>
+                <input type="text" id="player-name" placeholder="اكتب اسمك هنا..." required>
+            </div>
+
+            <div class="input-group">
+                <label for="discord-ticket">رقم تيكت ديسكورد:</label>
+                <input type="text" id="discord-ticket" placeholder="مثال: #1122..." required>
+            </div>
+
+            <div class="input-group">
+                <label for="egg-select">اختر نوع البيضة السحرية:</label>
+                <select id="egg-select">
+                    <option value="common">بيضة عادية (X - Common)</option>
+                    <option value="rare">بيضة نادرة (XX - Rare)</option>
+                    <option value="legendary">بيضة أسطورية (XXXX - Legendary)</option>
+                </select>
+            </div>
+
+            <button type="button" class="open-btn" onclick="startOpening()">افتح البيضة السحرية الآن 🌟</button>
         </div>
     </div>
 
