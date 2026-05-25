@@ -12,7 +12,7 @@
 
     <div id="result-container" style="margin-top: 20px;">
         <div id="final-result">
-            <p>جاري تحميل النتيجة...</p>
+            <p>جاري تحميل النتيجة وإصدار التيكت في السيرفر الآمن...</p>
         </div>
     </div>
 
@@ -25,24 +25,63 @@
             const resultDiv = document.getElementById('final-result');
             const urlParams = new URLSearchParams(window.location.search);
 
-            // قراءة البيانات من الرابط (تمت إضافة العملة)
+            // استقبال البيانات القادمة من الصفحة الرئيسية (بما فيها اسم اللاعب الممرر)
             const eggName = urlParams.get('egg');
             const animalName = urlParams.get('name');
             const animalPrice = urlParams.get('price');
             const animalRarity = urlParams.get('rarity');
-            const animalCurrency = urlParams.get('currency'); // <-- استقبال العملة الجديدة
+            const animalCurrency = urlParams.get('currency');
+            const playerName = urlParams.get('player'); // <-- استقبال اسم اللاعب إجبارياً هنا
 
-            if (animalName && eggName && animalPrice !== null && animalRarity) {
-                // عرض النتيجة (تم تعديل سطر السعر)
-                resultDiv.innerHTML = `
-                    <p>لقد اخترت: <strong>${eggName}</strong></p>
-                    <hr style="margin: 10px 0;">
-                    <p>وظهر لك:</p>
-                    <h3>${animalName}</h3>
-                    <p>السعر: ${animalPrice} ${animalCurrency}</p> <p>الندرة: ${animalRarity}</p>
-                `;
+            if (animalName && eggName && playerName) {
+                
+                // توليد رقم تيكت عشوائي ليظهر للمستخدم ويتطابق مع الفكرة المرفوعة للشيت
+                const generatedTicketNum = "TK-" + Math.floor(1000 + Math.random() * 9000);
+
+                // تجهيز البيانات المتطابقة تماماً مع أعمدة الجوجل شيت والـ Apps Script
+                const dataToSend = {
+                    playerName: playerName,
+                    eggType: eggName,
+                    animalName: animalName
+                };
+
+                // ⚠️ ضعي هنا رابط الـ Web app الذي نسختيه من جوجل شيت (بين علامتي التنصيص)
+                const googleScriptUrl = https://script.google.com/u/0/home/projects/1GLWLQ_37LRz3Jo_KG51csNIXLkgthz7oURnp5V-zyL_I7afL6UIXAUou/edithttps://script.google.com/u/0/home/projects/1GLWLQ_37LRz3Jo_KG51csNIXLkgthz7oURnp5V-zyL_I7afL6UIXAUou/edit ;
+
+                // إرسال البيانات فوراً وبشكل صامت إلى الجوجل شيت الآمن
+                fetch(googleScriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataToSend)
+                })
+                .then(() => {
+                    // عرض النتيجة النهائية الاحترافية للاعب بعد الاطمئنان على الحفظ في الجدول
+                    resultDiv.innerHTML = `
+                        <p style="font-size: 18px;">مرحباً بك يا : <strong style="color: #4a4e69;">${playerName}</strong></p>
+                        <p style="font-size: 16px; background: #e2ece9; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #2a9d8f;">
+                            رقم التيكت: ${generatedTicketNum}
+                        </p>
+                        <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                        <p>لقد اخترت: <strong>${eggName}</strong></p>
+                        <p>وظهر لك الفرد السحري التالي:</p>
+                        <h3 style="font-size: 32px; color: #d90429; margin: 10px 0;">${animalName}</h3>
+                        <p>السعر المحدد: ${animalPrice} ${animalCurrency}</p>
+                        <p>تصنيف الندرة: ${animalRarity}</p>
+                        <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
+                        <p style="color: green; font-weight: bold; font-size: 14px;"> مبروك!</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultDiv.innerHTML = `<p style="color: red;">حدث خطأ أثناء الاتصال بالسيرفر لحفظ التيكت.</p>`;
+                });
+
             } else {
-                resultDiv.innerHTML = "<p>عفواً، لم يتم العثور على نتيجة. حاول مرة أخرى من الصفحة الرئيسية.</p>";
+                resultDiv.innerHTML = "<p>عفواً، هناك بيانات مفقودة. يرجى بدء اللعبة وكتابة الاسم من الصفحة الرئيسية.</p>";
             }
         };
     </script>
