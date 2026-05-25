@@ -1,88 +1,147 @@
-
 body {
     font-family: 'Cairo', sans-serif;
-
-    background-image: url('images/background.jpg');
-    background-size: cover;         
-    background-position: center;    
-    background-repeat: no-repeat;     
-    background-attachment: fixed;    
+    background-image: url('images/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     text-align: center;
     color: #333;
     padding: 20px;
+    margin: 0;
 }
 
-h1 {
-    color: #ffffff;
-}
-
-h2 {
-    color: #ffffff;
-}
-
-
-.egg-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.egg {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.egg:hover {
-    transform: translateY(-10px);
-}
-
-.egg img {
-    width: 150px;
-    height: 150px;
-    cursor: pointer;
-}
-
-.egg button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4a1b4f;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.egg button:hover {
-    background-color: #ffffff;
-}
-
-#result-container {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    min-height: 100px;
-    display: inline-block;
-    width: 80%;
-    max-width: 500px;
-}
-
-#final-result h3 {
-    font-size: 28px;
-    margin: 10px;
+.game-container {
+    max-width: 1000px; /* لتوفير مساحة كافية للمربعات بجانب بعضها */
+    margin: 30px auto;
 }
 
 .subtitle {
     color: white;
-    font-size: 1.1em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /
+    font-size: 1.2em;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 25px;
+}
+
+/* حاوية خانات البيانات (الاسم والتيكت في الأعلى) */
+.user-info-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: right;
+    max-width: 600px;
+    margin: 0 auto 30px auto; 
+    display: flex;
+    gap: 15px; 
+    flex-wrap: wrap;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    color: #4a4e69;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Cairo', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #f5ff82; /* التوهج باللون الأصفر الباستيل عند التحديد */
+    outline: none;
+}
+
+/* حاوية البيض المرنة لتنسيقها بجانب بعضها */
+.egg-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* بطاقة البيضة (المربع الشفاف) */
+.egg-card {
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    width: 240px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.egg-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.egg-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.egg-card h3 {
+    color: #4a4e69;
+    margin: 10px 0 5px 0;
+    font-size: 1.3em;
+}
+
+/* شارات تصنيفات الندرة الملونة */
+.rarity-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.common-tag { background-color: #e2ece9; color: #2a9d8f; }
+.rare-tag { background-color: #f4a261; color: white; }
+.legendary-tag { background-color: #e63946; color: white; }
+
+/* أزرار الفتح داخل كل مربع */
+.open-egg-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4a4e69;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.open-egg-btn:hover {
+    background-color: #22223b;
+}
+
+/* حاوية صفحة النتيجة */
+#result-container {
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    max-width: 500px;
+}
