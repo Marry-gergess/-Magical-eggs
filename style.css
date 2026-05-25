@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-    color: (255,255,255,0.8);
+    color: white;
     padding: 20px;
     margin: 0;
 }
@@ -28,7 +28,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
     text-align: right;
     max-width: 600px;
     margin: 0 auto 30px auto; 
