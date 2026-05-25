@@ -102,6 +102,7 @@ function startOpeningCustom(eggType) {
 
     const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
 
+    // تجميع البيانات والانتقال لصفحة النتيجة
     const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
                           `&name=${encodeURIComponent(chosenAnimal.name)}` +
                           `&price=${chosenAnimal.price}` +
@@ -110,7 +111,7 @@ function startOpeningCustom(eggType) {
                           `&player=${encodeURIComponent(playerName)}` +
                           `&discord=${encodeURIComponent(discordTicket)}`;
 
-    window.location.href = 'result.html' + queryString ;
+    window.location.href = 'result.html' + queryString;
 }
 
 function getWeightedRandomTier(chances) {
