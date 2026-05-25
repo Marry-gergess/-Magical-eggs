@@ -102,14 +102,14 @@ function startOpeningCustom(eggType) {
 
     const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
 
-    // تجميع البيانات والانتقال لصفحة النتيجة
+    // تجميع البيانات النظيفة والمصلحة بالكامل للانتقال
     const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
-                          `&name=${encodeURIComponent(chosenAnimal.name)}` +
-                          `&price=${chosenAnimal.price}` +
-                          `&rarity=${encodeURIComponent(finalRarityName)}` +
-                          `&currency=${encodeURIComponent(chosenAnimal.currency)}` +
-                          `&player=${encodeURIComponent(playerName)}` +
-                          `&discord=${encodeURIComponent(discordTicket)}`;
+                        `&name=${encodeURIComponent(chosenAnimal.name)}` +
+                        `&price=${chosenAnimal.price}` +
+                        `&rarity=${encodeURIComponent(finalRarityName)}` +
+                        `&currency=${encodeURIComponent(chosenAnimal.currency)}` +
+                        `&player=${encodeURIComponent(playerName)}` +
+                        `&discord=${encodeURIComponent(discordTicket)}`;
 
     window.location.href = 'result.html' + queryString;
 }
