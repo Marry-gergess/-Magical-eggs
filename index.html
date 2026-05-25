@@ -1,136 +1,52 @@
-// --- 1. تعريف أسماء الفئات للعرض ---
-const rarityNames = {
-    common: "X",
-    rare: "XX",
-    epic: "XXX",
-    legendary: "XXXX",
-    mythic: "XXXXX"
-};
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر آل بوتر للحيوانات السحرية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// --- 2. قائمة الحيوانات السحرية ---
-const masterAnimalList = [
-    // حيوانات X
-    { name: "Rat | فأر", price: 6, rarity: "common", currency: "S" },
-    { name: "Frog | ضفدع", price: 6, rarity: "common", currency: "S" },
-    { name: "Cat | قطة", price: 10, rarity: "common", currency: "S" },
-    { name: "Dog | كلب", price: 10, rarity: "common", currency: "S" },
-    { name: "Parrot | ببغاء", price: 10, rarity: "common", currency: "S" },
-    { name: "سحلية الموك | Moke Lizard", price: 10, rarity: "common", currency: "S" },
+    <div class="game-container">
+        <h1>متجر آل بوتر للحيوانات السحرية</h1>
+        <p class="subtitle">أدخل بياناتك السحرية أولاً، ثم اختر البيضة لفتحها!</p>
 
-    // حيوانات XX
-    { name: "Puffskein | بفسكين", price: 1, rarity: "rare", currency: "G" },
-    { name: "Jobberknoll | جوبيرنول", price: 2, rarity: "rare", currency: "G" },
-    { name: "Bowtruckle | بوتروكل", price: 7, rarity: "rare", currency: "G" },
-    { name: "Diricawl | ديريكول", price: 5, rarity: "rare", currency: "G" },
-    { name: "Porlock | بورلوك", price: 6, rarity: "rare", currency: "G" },
-    { name: "Augurey | أجوري", price: 30, rarity: "rare", currency: "G" },
-    { name: "Fairy | جنية", price: 40, rarity: "rare", currency: "G" },
-    { name: "Mooncalf | مونكالف", price: 10, rarity: "rare", currency: "G" },
+        <div class="user-info-container">
+            <div class="input-group">
+                <label for="player-name">الاسم المروض:</label>
+                <input type="text" id="player-name" placeholder="اكتب اسمك هنا..." required>
+            </div>
 
-    // حيوانات XXX
-    { name: "Fwooper | فووبر", price: 11, rarity: "epic", currency: "G" },
-    { name: "Jarvey | جارف", price: 15, rarity: "epic", currency: "G" },
-    { name: "Fire Dwelling Salamander | سلمندر الناري", price: 27, rarity: "epic", currency: "G" },
-    { name: "Frost Salamander | سلمندر الجليد", price: 26, rarity: "epic", currency: "G" },
-    { name: "Peruvian Salamander | سلمندر البيروفي", price: 25, rarity: "epic", currency: "G" },
-    { name: "Ashwinder | أشفيندر", price: 13, rarity: "epic", currency: "G" },
-    { name: "Crup | كروب", price: 16, rarity: "epic", currency: "G" },
-    { name: "Matagot | ماتاجوت", price: 100, rarity: "epic", currency: "G" },
-    { name: "Hippogriff | هيبوغريف", price: 70, rarity: "epic", currency: "G" },
-    { name: "Niffler | نيفلر", price: 30, rarity: "epic", currency: "G" },
-    { name: "Hippocampus | حصان البحر", price: 22, rarity: "epic", currency: "G" },
-    { name: "Kneazle | كنزل", price: 17, rarity: "epic", currency: "G" },
-    { name: "Pixie | بيكسي", price: 15, rarity: "epic", currency: "G" },
-    { name: "Murtlap | مرتلاب", price: 11, rarity: "epic", currency: "G" },
-    { name: "Doxy | دوكسي", price: 11, rarity: "epic", currency: "G" },
-    
-    // حيوانات legendary (XXXX)
-    { name: "jj", price: 1, rarity: "legendary", currency: "G" },
-    { name: "سحلية", price: 45000, rarity: "legendary", currency: "جوهرة" },
+            <div class="input-group">
+                <label for="discord-ticket">رقم تيكت ديسكورد:</label>
+                <input type="text" id="discord-ticket" placeholder="مثال: #1122..." required>
+            </div>
+        </div>
 
-    // حيوانات mythic (XXXXX)
-    { name: "جريفين سماوي", price: 60000, rarity: "mythic", currency: "كريستالة" }
-];
+        <div class="egg-container">
+            
+            <div class="egg-card">
+                <img src="images/common-egg.png" alt="بيضة عادية" class="egg-image">
+                <h3>بيضة عادية</h3>
+                <button type="button" class="open-egg-btn" onclick="startOpeningCustom('common')">افتح بيضة عادية</button>
+            </div>
 
-// --- 3. تعريف حظوظ كل بيضة ---
-const eggProbabilities = {
-    common:    { common: 50, rare: 45, epic: 5, legendary: 0, mythic: 0 },
-    rare:      { common: 10, rare: 50, epic: 40, legendary: 0, mythic: 0 },
-    legendary: { common: 5,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
-};
+            <div class="egg-card">
+                <img src="images/rare-egg.png" alt="بيضة نادرة" class="egg-image">
+                <h3>بيضة نادرة</h3>
+                <button type="button" class="open-egg-btn" onclick="startOpeningCustom('rare')">افتح بيضة نادرة</button>
+            </div>
 
-// --- 4. الدالة الرئيسية لفتح البيضة ---
-function startOpeningCustom(eggType) {
-    const playerNameField = document.getElementById('player-name');
-    const discordTicketField = document.getElementById('discord-ticket');
+            <div class="egg-card">
+                <img src="images/legendary-egg.png" alt="بيضة أسطورية" class="egg-image">
+                <h3>بيضة أسطورية</h3>
+                <button type="button" class="open-egg-btn" onclick="startOpeningCustom('legendary')">افتح بيضة أسطورية</button>
+            </div>
 
-    if (!playerNameField || !discordTicketField) {
-        alert("خطأ: لم يتم العثور على خانات الإدخال في الصفحة!");
-        return;
-    }
+        </div>
+    </div>
 
-    const playerName = playerNameField.value.trim();
-    const discordTicket = discordTicketField.value.trim();
-
-    if (playerName === "" || discordTicket === "") {
-        alert("من فضلك أدخل الاسم ورقم تيكت ديسكورد أولاً قبل فتح البيضة!");
-        return;
-    }
-
-    const eggNames = {
-        common: "بيضة عادية (Common)",
-        rare: "بيضة نادرة (Rare)",
-        legendary: "بيضة أسطورية (Legendary)"
-    };
-    const selectedEggName = eggNames[eggType];
-
-    const chosenTierKey = getWeightedRandomTier(eggProbabilities[eggType]);
-    const possibleAnimals = masterAnimalList.filter(animal => animal.rarity === chosenTierKey);
-
-    let chosenAnimal;
-    if (possibleAnimals.length > 0) {
-        chosenAnimal = possibleAnimals[Math.floor(Math.random() * possibleAnimals.length)];
-    } else {
-        const fallbackTierKey = getFallbackTierKey(chosenTierKey);
-        const fallbackAnimals = masterAnimalList.filter(animal => animal.rarity === fallbackTierKey);
-        if (fallbackAnimals.length > 0) {
-            chosenAnimal = fallbackAnimals[Math.floor(Math.random() * fallbackAnimals.length)];
-        } else {
-            chosenAnimal = { name: "بيضة فارغة", price: 0, rarity: "common", currency: "" };
-        }
-    }
-
-    const finalRarityName = rarityNames[chosenAnimal.rarity] || "غير محدد";
-
-    // تجميع البيانات والانتقال لصفحة النتيجة
-    const queryString = `?egg=${encodeURIComponent(selectedEggName)}` +
-                          `&name=${encodeURIComponent(chosenAnimal.name)}` +
-                          `&price=${chosenAnimal.price}` +
-                          `&rarity=${encodeURIComponent(finalRarityName)}` +
-                          `&currency=${encodeURIComponent(chosenAnimal.currency)}` +
-                          `&player=${encodeURIComponent(playerName)}` +
-                          `&discord=${encodeURIComponent(discordTicket)}`;
-
-    window.location.href = 'result.html' + queryString;
-}
-
-function getWeightedRandomTier(chances) {
-    const rand = Math.random() * 100;
-    let cumulativeChance = 0;
-    for (const tier in chances) {
-        cumulativeChance += chances[tier];
-        if (rand < cumulativeChance) {
-            return tier;
-        }
-    }
-    return 'common';
-}
-
-function getFallbackTierKey(failedTierKey) {
-    const tierKeys = ['common', 'rare', 'epic', 'legendary', 'mythic'];
-    const failedIndex = tierKeys.indexOf(failedTierKey);
-    if (failedIndex > 0) {
-        return tierKeys[failedIndex - 1];
-    }
-    return 'common';
-}
+    <script src="script.js"></script>
+</body>
+</html>
