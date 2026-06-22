@@ -54,8 +54,8 @@ const masterAnimalList = [
 
 // --- 3. تعريف حظوظ كل بيضة ---
 const eggProbabilities = {
-    common:    { common: 50, rare: 45, epic: 5, legendary: 0, mythic: 0 },
-    rare:      { common: 10, rare: 50, epic: 40, legendary: 0, mythic: 0 },
+    common:    { common: 45, rare: 55, epic: 5, legendary: 0, mythic: 0 },
+    rare:      { common: 20, rare: 50, epic: 30, legendary: 0, mythic: 0 },
     legendary: { common: 5,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
 };
 
