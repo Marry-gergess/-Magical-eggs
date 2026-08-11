@@ -1,4 +1,4 @@
-// --- 1. تعريف أسماء الفئات للعرض ---
+
 const rarityNames = {
     common: "X",
     rare: "XX",
@@ -7,9 +7,9 @@ const rarityNames = {
     mythic: "XXXXX"
 };
 
-// --- 2. قائمة الحيوانات السحرية ---
+
 const masterAnimalList = [
-    // حيوانات X
+    
     { name: "Rat | فأر", price: 6, rarity: "common", currency: "S" },
     { name: "Frog | ضفدع", price: 6, rarity: "common", currency: "S" },
     { name: "Cat | قطة", price: 10, rarity: "common", currency: "S" },
@@ -17,7 +17,7 @@ const masterAnimalList = [
     { name: "Parrot | ببغاء", price: 10, rarity: "common", currency: "S" },
     { name: "سحلية الموك | Moke Lizard", price: 10, rarity: "common", currency: "S" },
 
-    // حيوانات XX
+    
     { name: "Puffskein | بفسكين", price: 1, rarity: "rare", currency: "G" },
     { name: "Jobberknoll | جوبيرنول", price: 2, rarity: "rare", currency: "G" },
     { name: "Bowtruckle | بوتروكل", price: 7, rarity: "rare", currency: "G" },
@@ -27,7 +27,7 @@ const masterAnimalList = [
     { name: "Fairy | جنية", price: 40, rarity: "rare", currency: "G" },
     { name: "Mooncalf | مونكالف", price: 10, rarity: "rare", currency: "G" },
 
-    // حيوانات XXX
+    
     { name: "Fwooper | فووبر", price: 11, rarity: "epic", currency: "G" },
     { name: "Jarvey | جارف", price: 15, rarity: "epic", currency: "G" },
     { name: "Fire Dwelling Salamander | سلمندر الناري", price: 27, rarity: "epic", currency: "G" },
@@ -44,15 +44,12 @@ const masterAnimalList = [
     { name: "Murtlap | مرتلاب", price: 11, rarity: "epic", currency: "G" },
     { name: "Doxy | دوكسي", price: 11, rarity: "epic", currency: "G" },
     
-    // حيوانات legendary (XXXX)
     { name: "jj", price: 1, rarity: "legendary", currency: "G" },
     { name: "سحلية", price: 45000, rarity: "legendary", currency: "جوهرة" },
 
-    // حيوانات mythic (XXXXX)
     { name: "جريفين سماوي", price: 60000, rarity: "mythic", currency: "كريستالة" }
 ];
 
-// --- 3. تعريف حظوظ كل بيضة ---
 const eggProbabilities = {
     common:    { common: 30, rare: 69, epic: 10, legendary: 0, mythic: 0 },
     rare:      { common: 20, rare: 50, epic: 30, legendary: 0, mythic: 0 },
