@@ -8,16 +8,16 @@
 </head>
 <body>
 
-    <h1>المخلوق الذي حصلت عليها:</h1>
+    <h1>المخلوق الذي حصلت عليه:</h1>
 
     <div id="result-container">
         <div id="final-result">
-            <p> جاري فتح البيضة السحرية...</p>
+            <p>جاري فتح البيضة السحرية...</p>
         </div>
     </div>
 
     <a href="index.html" style="text-decoration: none;">
-        <button class="open-btn" style="max-width: 300px; margin: 30px auto;">فتح بيضة أخرى</button>
+        <button class="open-egg-btn" style="max-width: 300px; margin: 30px auto;">فتح بيضة أخرى</button>
     </a>
 
     <script>
@@ -44,13 +44,14 @@
                 };
 
                 const googleScriptUrl = "https://script.google.com/macros/s/AKfycbxs1A-VqY47pJ_1sQcBb7YzB_TMFmTw9HDetWAXL3OByHXPmu9v3y9_kiEZDoD2WSxOaA/exec";
+
                 // إرسال البيانات صامتة وآمنة فوراً للجوجل شيت
                 fetch(googleScriptUrl, {
                     method: 'POST',
                     mode: 'no-cors', 
                     cache: 'no-cache',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'text/plain;charset=utf-8'
                     },
                     body: JSON.stringify(dataToSend)
                 })
@@ -59,13 +60,13 @@
                     resultDiv.innerHTML = `
                         <p style="font-size: 18px;"> الاسم السحري: <strong style="color: #4a4e69;">${playerName}</strong></p>
                         <p style="font-size: 16px; background: #e2ece9; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #2a9d8f;">
-                           رقم تيكت ديسكورد  : ${discordTicket}
+                           رقم تيكت ديسكورد: ${discordTicket}
                         </p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
                         <p>لقد اخترت: <strong>${eggName}</strong></p>
                         <p> وظهر لك المخلوق السحري التالي:</p>
                         <h3 style="font-size: 32px; color: #d90429; margin: 10px 0;">${animalName}</h3>
-                        <p>السعر : ${animalPrice} ${animalCurrency}</p>
+                        <p>السعر: ${animalPrice} ${animalCurrency}</p>
                         <p>تصنيف وزارة السحر: ${animalRarity}</p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px dashed #ccc;">
                     `;
@@ -76,7 +77,7 @@
                 });
 
             } else {
-                resultDiv.innerHTML = "<p> عفواً، هناك بيانات ناقصة. يرجى ملء جميع البيانات .</p>";
+                resultDiv.innerHTML = "<p>عفواً، هناك بيانات ناقصة. يرجى ملء جميع البيانات.</p>";
             }
         };
     </script>
