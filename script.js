@@ -10,39 +10,39 @@ const rarityNames = {
 
 const masterAnimalList = [
     
-    { name: "Rat | فأر", price: 6, rarity: "common", currency: "S" },
-    { name: "Frog | ضفدع", price: 6, rarity: "common", currency: "S" },
-    { name: "Cat | قطة", price: 10, rarity: "common", currency: "S" },
-    { name: "Dog | كلب", price: 10, rarity: "common", currency: "S" },
-    { name: "Parrot | ببغاء", price: 10, rarity: "common", currency: "S" },
-    { name: "سحلية الموك | Moke Lizard", price: 10, rarity: "common", currency: "S" },
+    { name: "Rat | فأر", price: 2, rarity: "common", currency: "G" },
+    { name: "Frog | ضفدع", price: 2, rarity: "common", currency: "G" },
+    { name: "Cat | قطة", price: 3, rarity: "common", currency: "G" },
+    { name: "Dog | كلب", price: 3, rarity: "common", currency: "G" },
+    { name: "Parrot | ببغاء", price: 3, rarity: "common", currency: "G" },
+    { name: "سحلية الموك | Moke Lizard", price: 3, rarity: "common", currency: "G" },
 
     
-    { name: "Puffskein | بفسكين", price: 1, rarity: "rare", currency: "G" },
-    { name: "Jobberknoll | جوبيرنول", price: 2, rarity: "rare", currency: "G" },
-    { name: "Bowtruckle | بوتروكل", price: 7, rarity: "rare", currency: "G" },
-    { name: "Diricawl | ديريكول", price: 5, rarity: "rare", currency: "G" },
-    { name: "Porlock | بورلوك", price: 6, rarity: "rare", currency: "G" },
-    { name: "Augurey | أجوري", price: 30, rarity: "rare", currency: "G" },
-    { name: "Fairy | جنية", price: 40, rarity: "rare", currency: "G" },
-    { name: "Mooncalf | مونكالف", price: 10, rarity: "rare", currency: "G" },
+    { name: "Puffskein | بفسكين", price: 5, rarity: "rare", currency: "G" },
+    { name: "Jobberknoll | جوبيرنول", price: 10, rarity: "rare", currency: "G" },
+    { name: "Bowtruckle | بوتروكل", price: 12, rarity: "rare", currency: "G" },
+    { name: "Diricawl | ديريكول", price: 13, rarity: "rare", currency: "G" },
+    { name: "Porlock | بورلوك", price: 14, rarity: "rare", currency: "G" },
+    { name: "Augurey | أجوري", price: 60, rarity: "rare", currency: "G" },
+    { name: "Fairy | جنية", price: 120, rarity: "rare", currency: "G" },
+    { name: "Mooncalf | مونكالف", price: 20, rarity: "rare", currency: "G" },
 
     
-    { name: "Fwooper | فووبر", price: 11, rarity: "epic", currency: "G" },
-    { name: "Jarvey | جارف", price: 15, rarity: "epic", currency: "G" },
-    { name: "Fire Dwelling Salamander | سلمندر الناري", price: 27, rarity: "epic", currency: "G" },
-    { name: "Frost Salamander | سلمندر الجليد", price: 26, rarity: "epic", currency: "G" },
-    { name: "Peruvian Salamander | سلمندر البيروفي", price: 25, rarity: "epic", currency: "G" },
-    { name: "Ashwinder | أشفيندر", price: 13, rarity: "epic", currency: "G" },
-    { name: "Crup | كروب", price: 16, rarity: "epic", currency: "G" },
-    { name: "Matagot | ماتاجوت", price: 100, rarity: "epic", currency: "G" },
-    { name: "Hippogriff | هيبوغريف", price: 70, rarity: "epic", currency: "G" },
-    { name: "Niffler | نيفلر", price: 30, rarity: "epic", currency: "G" },
-    { name: "Hippocampus | حصان البحر", price: 22, rarity: "epic", currency: "G" },
-    { name: "Kneazle | كنزل", price: 17, rarity: "epic", currency: "G" },
-    { name: "Pixie | بيكسي", price: 15, rarity: "epic", currency: "G" },
-    { name: "Murtlap | مرتلاب", price: 11, rarity: "epic", currency: "G" },
-    { name: "Doxy | دوكسي", price: 11, rarity: "epic", currency: "G" },
+    { name: "Fwooper | فووبر", price: 22, rarity: "epic", currency: "G" },
+    { name: "Jarvey | جارف", price: 22, rarity: "epic", currency: "G" },
+    { name: "Fire Dwelling Salamander | سلمندر الناري", price: 44, rarity: "epic", currency: "G" },
+    { name: "Frost Salamander | سلمندر الجليد", price: 54, rarity: "epic", currency: "G" },
+    { name: "Peruvian Salamander | سلمندر البيروفي", price: 50, rarity: "epic", currency: "G" },
+    { name: "Ashwinder | أشفيندر", price: 26, rarity: "epic", currency: "G" },
+    { name: "Crup | كروب", price: 32, rarity: "epic", currency: "G" },
+    { name: "Matagot | ماتاجوت", price: 250, rarity: "epic", currency: "G" },
+    { name: "Hippogriff | هيبوغريف", price: 500, rarity: "epic", currency: "G" },
+    { name: "Niffler | نيفلر", price: 60, rarity: "epic", currency: "G" },
+    { name: "Hippocampus | حصان البحر", price: 44, rarity: "epic", currency: "G" },
+    { name: "Kneazle | كنزل", price: 34, rarity: "epic", currency: "G" },
+    { name: "Pixie | بيكسي", price: 30, rarity: "epic", currency: "G" },
+    { name: "Murtlap | مرتلاب", price:22, rarity: "epic", currency: "G" },
+    { name: "Doxy | دوكسي", price: 22, rarity: "epic", currency: "G" },
     
     { name: "jj", price: 1, rarity: "legendary", currency: "G" },
     { name: "سحلية", price: 45000, rarity: "legendary", currency: "جوهرة" },
@@ -51,9 +51,9 @@ const masterAnimalList = [
 ];
 
 const eggProbabilities = {
-    common:    { common: 30, rare: 69, epic: 10, legendary: 0, mythic: 0 },
+    common:    { common: 30, rare: 60, epic: 10, legendary: 0, mythic: 0 },
     rare:      { common: 20, rare: 50, epic: 30, legendary: 0, mythic: 0 },
-    legendary: { common: 5,  rare: 30, epic: 60, legendary: 0, mythic: 0 }
+    legendary: { common: 5,  rare: 35, epic: 60, legendary: 0, mythic: 0 }
 };
 
 // --- 4. الدالة الرئيسية لفتح البيضة ---
