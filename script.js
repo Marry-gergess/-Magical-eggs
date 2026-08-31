@@ -51,9 +51,9 @@ const masterAnimalList = [
 ];
 
 const eggProbabilities = {
-    common:    { common: 30, rare: 60, epic: 10, legendary: 0, mythic: 0 },
+    common:    { common: 60, rare: 30, epic: 10, legendary: 0, mythic: 0 },
     rare:      { common: 20, rare: 50, epic: 30, legendary: 0, mythic: 0 },
-    legendary: { common: 5,  rare: 35, epic: 60, legendary: 0, mythic: 0 }
+    legendary: { common: 5,  rare: 30, epic: 65, legendary: 0, mythic: 0 }
 };
 
 // --- 4. الدالة الرئيسية لفتح البيضة ---
